@@ -51,9 +51,8 @@
               echo '<option value="">Choose...</option>';
           }
           ?>
-            
-            <option value="ประปา">-ประปา-</option>
-            <option value="เครื่องใช้ไฟฟ้า">-เครื่องใช้ไฟฟ้า-</option>
+            <option value="<?=$rs_detail["j_name"]?>"></option>
+
           </select>
         </div>
         <div class="form-group col col-md-7">

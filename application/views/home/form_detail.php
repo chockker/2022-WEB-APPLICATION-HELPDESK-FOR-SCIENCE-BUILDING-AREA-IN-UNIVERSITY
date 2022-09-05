@@ -67,7 +67,7 @@
         </div>
         <div class="form-group  row col col-sm-7">
           <label>ประเภทปัญหา</label>
-          <select name="c_type" class="form-control" disabled>
+          <select name="c_type" class="form-control" disabled >
             <option value="<?= $rs_detail->c_type;?>"><?= $rs_detail->c_type;?></option>
           </select>
         </div>

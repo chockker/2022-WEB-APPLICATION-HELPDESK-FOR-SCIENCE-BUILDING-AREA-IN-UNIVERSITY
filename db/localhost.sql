@@ -84,3 +84,18 @@ ALTER TABLE `admin`
  
 ALTER TABLE `admin`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- Table structure for table `job_type`
+--
+
+CREATE TABLE `job_type` (
+  `j_id` int(5) NOT NULL,
+  `j_name` varchar(150) NOT NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ 
+ALTER TABLE `job_type`
+  ADD PRIMARY KEY (`j_id`);
+ 
+ALTER TABLE `job_type`
+  MODIFY `j_id` int(5) NOT NULL AUTO_INCREMENT;

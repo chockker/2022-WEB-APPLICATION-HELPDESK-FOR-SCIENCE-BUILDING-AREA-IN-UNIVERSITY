@@ -45,6 +45,18 @@ class Data_model extends CI_Model {
                 }
                 return FALSE;
         }
+        //job_type
+        public function get_detail_job($j_id){
+                $this->db->select('j.*');
+                $this->db->from('job_type j');
+                $this->db->where('j.j_id',$j_id);
+                $query = $this->db->get();
+                if($query->num_rows() > 0){
+                        $data = $query->row();
+                        return $data;
+                }
+                return FALSE;
+        }
         public function update_job()
         {
                 //Set ว/ด/ป เวลา ให้เป็นของประเทศไทย
@@ -145,4 +157,4 @@ class Data_model extends CI_Model {
             $query = $this->db->get('case_report');
             return $query->result();
         }
-}
+}       

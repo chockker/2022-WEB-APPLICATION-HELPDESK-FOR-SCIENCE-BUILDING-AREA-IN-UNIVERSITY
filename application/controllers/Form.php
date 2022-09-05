@@ -83,6 +83,12 @@ class Form extends CI_Controller {
 		$this->load->view('home/form_detail' ,$data);
 		$this->load->view('home/footer');
 	}
+	//job_type
+	public function detail_job($j_id)
+	{
+		$data['j_detail']=$this->data_model->get_detail_job($j_id);
+		// print_r($data);
+	}
 	public function allcase()
 	{
 	$data['query']=$this->data_model->all();
