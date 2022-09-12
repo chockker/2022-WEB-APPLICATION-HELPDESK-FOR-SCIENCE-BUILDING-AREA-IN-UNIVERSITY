@@ -1,5 +1,5 @@
 <?php
-/**
+/**deafile
  * CodeIgniter
  *
  * An open source application development framework for PHP
@@ -53,7 +53,7 @@ class CI_Upload {
 	 *
 	 * @var	int
 	 */
-	public $max_size = 0;
+	public $max_size = 10000;
 
 	/**
 	 * Maximum image width

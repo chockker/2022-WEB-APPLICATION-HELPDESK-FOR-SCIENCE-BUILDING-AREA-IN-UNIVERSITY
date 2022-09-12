@@ -52,9 +52,6 @@ class Form extends CI_Controller {
 		                		//img
 							 		$config['upload_path']= 'asset/uploads/';
 					                $config['allowed_types']= 'gif|jpg|png|heif|raw|jpeg';
-									$config['max_size'] = 10000;
-        							$config['max_width'] = 1500;
-        							$config['max_height'] = 1500;
 					                $config['encrypt_name']= TRUE;
 
 					                $this->load->library('upload', $config);
