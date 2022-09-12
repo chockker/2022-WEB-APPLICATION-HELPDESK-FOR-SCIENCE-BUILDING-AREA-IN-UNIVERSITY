@@ -7,14 +7,16 @@ class Form extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('data_model');
+		$this->load->model('jobs_model');
 	}
 
 
 
 	public function index()
 	{
+		$data['j_detail']=$this->jobs_model->read_jobs_all();
 		$this->load->view('home/header');
-		$this->load->view('home/form_view' , array('error' => ' ' ));
+		$this->load->view('home/form_view' ,$data); //array('error' => ' ' )
 		$this->load->view('home/footer');
 	}
 
@@ -28,7 +30,7 @@ class Form extends CI_Controller {
 
 		$this->form_validation->set_rules('c_name', 'ชื่อผู้แจ้ง', 'trim|required|min_length[3]',
 				array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 3 ตัว'));
-		$this->form_validation->set_rules('c_type', 'ประเภทปัญหา', 'trim|required|min_length[1]',
+		$this->form_validation->set_rules('j_name', 'ประเภทปัญหา', 'trim|required|min_length[1]',
                 array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว'));
 		$this->form_validation->set_rules('c_town', 'ตึก', 'trim|required|min_length[1]',
                 array('required' => 'กรุณากรอกข้อมูล %s.','min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว'));
@@ -83,18 +85,12 @@ class Form extends CI_Controller {
 		$this->load->view('home/form_detail' ,$data);
 		$this->load->view('home/footer');
 	}
-	//job_type
-	public function detail_job($j_id)
-	{
-		$data['j_detail']=$this->data_model->get_detail_job($j_id);
-		// print_r($data);
-	}
+
 	public function allcase()
 	{
-	$data['query']=$this->data_model->all();
-	$this->load->view('home/header');
-	$this->load->view('home/list_case_view' ,$data);
-	$this->load->view('home/footer');
+		$data['query']=$this->data_model->all();
+		$this->load->view('home/header');
+		$this->load->view('home/list_case_view' ,$data);
+		$this->load->view('home/footer');
 	}
-
 }

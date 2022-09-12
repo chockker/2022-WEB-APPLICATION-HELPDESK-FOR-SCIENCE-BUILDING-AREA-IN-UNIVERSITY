@@ -26,7 +26,8 @@ class Admin_model extends CI_Model {
  
  
 //show form edit
-	 public function read($id){
+	 public function read($id)
+         {
                 $this->db->where('id',$id);
                 $query = $this->db->get('admin');
                 if($query->num_rows() > 0){

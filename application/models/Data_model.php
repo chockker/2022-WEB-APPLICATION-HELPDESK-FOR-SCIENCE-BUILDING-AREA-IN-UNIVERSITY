@@ -13,7 +13,7 @@ class Data_model extends CI_Model {
                 $filename = $this->upload->file_name;
                 $data = array(
                         'c_name' => $this->input->post('c_name'),
-                        'c_type' => $this->input->post('c_type'),
+                        'c_type' => $this->input->post('j_name'),
                         'c_town' => $this->input->post('c_town'),
                         'c_floor' => $this->input->post('c_floor'),
                         'c_detail' => $this->input->post('c_detail'),
@@ -34,22 +34,11 @@ class Data_model extends CI_Model {
                 }
                 return FALSE;
         }
-        public function get_detail($c_id){
+        public function get_detail($c_id)
+        {
                 $this->db->select('c.*');
                 $this->db->from('case_report c');
                 $this->db->where('c.c_id',$c_id);
-                $query = $this->db->get();
-                if($query->num_rows() > 0){
-                        $data = $query->row();
-                        return $data;
-                }
-                return FALSE;
-        }
-        //job_type
-        public function get_detail_job($j_id){
-                $this->db->select('j.*');
-                $this->db->from('job_type j');
-                $this->db->where('j.j_id',$j_id);
                 $query = $this->db->get();
                 if($query->num_rows() > 0){
                         $data = $query->row();
@@ -157,4 +146,11 @@ class Data_model extends CI_Model {
             $query = $this->db->get('case_report');
             return $query->result();
         }
-}       
+        //query by jobstype
+        public function by_jobstype($c_type)
+        {
+            $this->db->where('c_type',$c_type,TRUE);
+            $query = $this->db->get('case_report');
+            return $query->result();
+        }
+}

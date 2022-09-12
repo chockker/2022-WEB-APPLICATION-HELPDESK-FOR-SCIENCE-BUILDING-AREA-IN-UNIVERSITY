@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12" style="background-color: #f77100;">
-    <h3 style="margin:50px; color:#FFFFFF;text-align:center" >
+    <h3 style="margin:50px; color:#FFFFFF;text-align:center;font-family:thaisans_neueregular;" >
        :รายละเอียดการแจ้งซ่อม:
       </h3>
     </div>
@@ -11,20 +11,19 @@
     <div class="row">
         <div class="col col-sm-12 col-md-12" style="padding:0px">
             <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #292b2c;">
-                <a class="navbar-brand" style="color:#FFFFFF" href="<?= site_url('');?>">HelpDesk</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background-color:#ffffff;">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" style="color:#FFFFFF" href="<?= site_url('');?>">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" style="color:#FFFFFF;font-family:thaisans_neueregular;" href="<?= site_url('');?>">แจ้งซ่อม<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                          <a class="nav-link" style="color:#FFFFFF" href="<?= site_url('form/allcase');?>">ติดตามงาน</a>
+                          <a class="nav-link" style="color:#FFFFFF;font-family:thaisans_neueregular;" href="<?= site_url('form/allcase');?>">ติดตามงาน</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" style="color:#FFFFFF" href="<?= site_url('login');?>">Login</a>
+                            <a class="nav-link" style="color:#FFFFFF;font-family:thaisans_neueregular;" href="<?= site_url('login');?>">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -38,11 +37,11 @@
     <div class="col col-sm-10 col-md-10">
       <form class="form-horizontal" >
         <div class="form-group row">
-          <div class="col-12 col-sm-2">
+          <div class="col-12 col-sm-2" style="font-family:thaisans_neueregular;">
             <label>CaseID</label>
             <input type="number" name="c_id" class="form-control"    value="<?= $rs_detail->c_id;?>" disabled>
           </div>
-          <div class="col-12 col-sm-4">
+          <div class="col-12 col-sm-4" style="font-family:thaisans_neueregular;">
             <label>Status</label>
             <?php
             $st = $rs_detail->c_status;
@@ -61,39 +60,39 @@
             <input type="text" style="color:red;"  class="form-control"  value="<?= $stMsg;?>" disabled>
           </div>
         </div>
-        <div class="form-group row col col-sm-5">
+        <div class="form-group row col col-sm-5" style="font-family:thaisans_neueregular;">
           <label>ชื่อผู้แจ้ง</label>
           <input type="text" name="c_name" class="form-control" disabled  value="<?= $rs_detail->c_name;?>">
         </div>
-        <div class="form-group  row col col-sm-7">
+        <div class="form-group  row col col-sm-7" style="font-family:thaisans_neueregular;">
           <label>ประเภทปัญหา</label>
-          <select name="c_type" class="form-control" disabled >
+          <select name="c_type" class="form-control" disabled>
             <option value="<?= $rs_detail->c_type;?>"><?= $rs_detail->c_type;?></option>
           </select>
         </div>
-        <div class="form-group row col col-sm-7">
+        <div class="form-group row col col-sm-7" style="font-family:thaisans_neueregular;">
           <label>รายละเอียดปัญหา</label>
           <textarea name="c_detail" class="form-control" disabled><?= $rs_detail->c_detail;?></textarea>
         </div>
-        <div class="form-group  row col col-sm-5">
+        <div class="form-group  row col col-sm-5" style="font-family:thaisans_neueregular;">
           <label>ตึก</label>
           <select name="c_town" class="form-control" disabled>
             <option value="<?= $rs_detail->c_town;?>"><?= $rs_detail->c_town;?></option>
           </select>
         </div>
-        <div class="form-group  row col col-sm-5">
+        <div class="form-group  row col col-sm-5" style="font-family:thaisans_neueregular;">
           <label>ชั้น</label>
           <select name="c_floor" class="form-control" disabled>
             <option value="<?= $rs_detail->c_floor;?>"><?= $rs_detail->c_floor;?></option>
           </select>
         </div>
-        <div class="form-group row col col-sm-7" >
+        <div class="form-group row col col-sm-7" style="font-family:thaisans_neueregular;">
           <label>ภาพประกอบ</label>
           <img src="<?= base_url('./asset/uploads/'.$rs_detail->c_img); ?>"width="100%">
         </div>
         <div class="form-group  col col-sm-5">
           <br><br>
-          <a href="<?= site_url('');?>"  class="btn btn-primary">กลับหน้าหลัก </a>
+          <a href="<?= site_url('');?>"  class="btn btn-primary" style="background-color:#f77100;border-style:none;font-family:thaisans_neueregular;">กลับหน้าหลัก </a>
         </div>
       </form>
     </div>

@@ -42,12 +42,11 @@
                             
                             <div id="piechart1" style="width: 600px; height: 400px;"></div>
                             
-                            <h3>:จำนวนงานแยกตามประเภท:</h3>
+                            <h3>จำนวนงานแยกตามประเภท</h3>
                             <table class="table table-bordered table-striped" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row" class="info">
-                                        <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">#</th>
-                                        <th  tabindex="0" rowspan="1" colspan="1" style="width: 75%;">ประเภทงานซ่อม</th>
+                                        <th  tabindex="0" rowspan="1" colspan="1" style="width: 50%;">ประเภทงานซ่อม</th>
                                         <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">จำนวน</th>
                                         <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">view</th>
                                     </tr>
@@ -55,10 +54,9 @@
                                 <tbody>
                                     <?php foreach ($queryreport as $rsr) { ?>
                                     <tr role="row">
-                                        <td align="center">#</td>
                                         <td><?= $rsr->c_type;?></td>
                                         <td align="center"><?= $rsr->casetotal;?></td>
-                                        <td align="center"><a href="#" class="btn btn-info btn-xs"> view </a></td>
+                                        <td align="center"><a href="<?php   echo site_url('jobs/byjobstype/'.$rsr->c_type); ?>" class="btn btn-info btn-xs"> view </a></td>
                                     </tr>
                                     <?php  } ?>
                                 </tbody>
@@ -105,12 +103,11 @@
                             
                             <div id="piechart2" style="width: 600px; height: 400px;"></div>
                         
-                            <h3>:จำนวนงานแยกตามสถานะ:</h3>
+                            <h3>จำนวนงานแยกตามสถานะ</h3>
                             <table class="table table-bordered table-striped" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row" class="danger">
-                                        <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">#</th>
-                                        <th  tabindex="0" rowspan="1" colspan="1" style="width: 75%;">ประเภทงานซ่อม</th>
+                                        <th  tabindex="0" rowspan="1" colspan="1" style="width: 50%;">สถานะทั้งหมด</th>
                                         <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">จำนวน</th>
                                         <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">view</th>
                                     </tr>
@@ -118,7 +115,6 @@
                                 <tbody>
                                     <?php foreach ($querystatus as $rss) { ?>
                                     <tr role="row">
-                                        <td align="center">#</td>
                                         <td>
                                             <?php
                                             if($rss->c_status==1){
@@ -133,14 +129,13 @@
                                             ?>
                                         </td>
                                         <td align="center"><?= $rss->statustotal;?></td>
-                                        <td align="center"><a href="#" class="btn btn-info btn-xs"> view </a></td>
+                                        <td align="center"><a href="<?php echo site_url('jobs/bystatus/'.$rss->c_status);?>" class="btn btn-info btn-xs"> view </a></td>
                                     </tr>
                                     <?php  } ?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    <p>  * view ให้ไปต่อยอดเอาเองนะครับ ดูตัวอย่างจากหน้าแสดงงานตามสถานะ (Controller/Jobs) </p>
                 </div>
                 </div><!-- /.box-body -->
             </div>

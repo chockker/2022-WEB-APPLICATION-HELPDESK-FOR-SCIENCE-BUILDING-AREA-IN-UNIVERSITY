@@ -110,7 +110,7 @@
         <li class="header">MAIN NAVIGATION</li>
            <li><a href="<?= site_url('jobs');?>"><i class="fa fa-home"></i> <span>HOME</span></a></li>
            <li><a href="<?= site_url('jobs');?>"><i class="fa fa-home"></i> <span>Jobs</span></a></li>
-           <li><a href="<?= site_url('jobs_type');?>"><i class="fa fa-home"></i> <span>Addjobs</span></a></li>
+           <li><a href="<?= site_url('addjobs');?>"><i class="fa fa-home"></i> <span>Addjobs</span></a></li>
            <li><a href="<?= site_url('report');?>"><i class="fa fa-home"></i> <span>Report</span></a></li>
            <li><a href="<?= site_url('admin');?>"><i class="fa fa-home"></i> <span>Admin</span></a></li>
           <li><a href="<?= site_url('login/logout');?>" onclick="return confirm('do you want to logout ?');"><i class="fa fa-edit"></i> <span>Logout</span></a></li>
