@@ -67,10 +67,6 @@ ALTER TABLE `case_report`
   MODIFY `c_id` int(10) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
 CREATE TABLE `admin` (
   `id` int(10) NOT NULL,
   `a_username` varchar(50) NOT NULL,
@@ -99,3 +95,102 @@ ALTER TABLE `job_type`
  
 ALTER TABLE `job_type`
   MODIFY `j_id` int(5) NOT NULL AUTO_INCREMENT;
+
+--
+-- Table structure for table `floor`
+--
+
+CREATE TABLE `floor` (
+  `fl_id` int(5) NOT NULL,
+  `fl_no` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `floor`
+--
+
+INSERT INTO `floor` (`fl_id`, `fl_no`) VALUES
+(1, '1'),
+(2, '2'),
+(3, '3'),
+(4, '4'),
+(5, '5'),
+(6, '6'),
+(7, '7'),
+(8, '8'),
+(9, '9'),
+(10, '10'),
+(11, '11'),
+(12, '12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `floor_detail`
+--
+
+CREATE TABLE `floor_detail` (
+  `fld_id` int(5) NOT NULL,
+  `fld_name` varchar(50) NOT NULL,
+  `floor` varchar(50) NOT NULL,
+  `town` varchar(50) NOT NULL,
+  `fld_img` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `town`
+--
+
+CREATE TABLE `town` (
+  `t_id` int(5) NOT NULL,
+  `t_num` varchar(50) NOT NULL,
+  `t_name` varchar(100) NOT NULL,
+  `t_fl_amt` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `town`
+--
+
+INSERT INTO `town` (`t_id`, `t_num`, `t_fl_amt`) VALUES
+(1, '78', 10),
+(2, '75', 12);
+
+--
+-- Indexes for dumped tables
+--
+
+ALTER TABLE `floor`
+  ADD PRIMARY KEY (`fl_id`);
+
+--
+-- Indexes for table `floor_detail`
+--
+ALTER TABLE `floor_detail`
+  ADD PRIMARY KEY (`fld_id`);
+
+ALTER TABLE `town`
+  ADD PRIMARY KEY (`t_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+ALTER TABLE `floor`
+  MODIFY `fl_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `floor_detail`
+--
+ALTER TABLE `floor_detail`
+  MODIFY `fld_id` int(5) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `town`
+  MODIFY `t_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -38,6 +38,6 @@ class Jobs_model extends CI_Model {
     public function del_jobs($j_id)
         {
                $this->db->delete('job_type',array('j_id'=>$j_id));
- 
+               $this->db->query('ALTER TABLE job_type AUTO_INCREMENT 1');
         }
 }

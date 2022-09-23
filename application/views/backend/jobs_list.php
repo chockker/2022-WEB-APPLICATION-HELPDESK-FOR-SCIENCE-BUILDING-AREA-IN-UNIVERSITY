@@ -33,6 +33,7 @@
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 25%;">ผู้แจ้ง</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 15%;">สถานะ</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">จัดการ</th>
+                                            <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ลบ</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -69,6 +70,9 @@
                                                 <a href="<?php   echo site_url('jobs/getupdate/'.$rs->c_id); ?>" class="btn btn-success btn-xs">
                                                     จัดการ
                                                 </a>
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-danger btn-xs" href="<?= site_url('jobs/del/'.$rs->c_id); ?>" role="button" onclick="return confirm('ยืนยันการลบข้อมูล??');"><i class="fa fa-fw fa-trash" ></i> ลบ</a>
                                             </td>
                                         </tr>
                                         <?php  } ?>

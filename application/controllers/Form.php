@@ -8,6 +8,9 @@ class Form extends CI_Controller {
 		parent::__construct();
 		$this->load->model('data_model');
 		$this->load->model('jobs_model');
+		$this->load->model('town_model');
+		$this->load->model('floor_model');
+
 	}
 
 
@@ -15,6 +18,8 @@ class Form extends CI_Controller {
 	public function index()
 	{
 		$data['j_detail']=$this->jobs_model->read_jobs_all();
+		$data['t_detail']=$this->town_model->read_town_all();
+		$data['fl_detail']=$this->floor_model->read_floor_all();
 		$this->load->view('home/header');
 		$this->load->view('home/form_view' ,$data); //array('error' => ' ' )
 		$this->load->view('home/footer');
@@ -32,9 +37,9 @@ class Form extends CI_Controller {
 				array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 3 ตัว'));
 		$this->form_validation->set_rules('j_name', 'ประเภทปัญหา', 'trim|required|min_length[1]',
                 array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว'));
-		$this->form_validation->set_rules('c_town', 'ตึก', 'trim|required|min_length[1]',
+		$this->form_validation->set_rules('t_num', 'ตึก', 'trim|required|min_length[1]',
                 array('required' => 'กรุณากรอกข้อมูล %s.','min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว'));
-		$this->form_validation->set_rules('c_floor', 'ชั้น', 'trim|required|min_length[1]',
+		$this->form_validation->set_rules('fl_no', 'ชั้น', 'trim|required|min_length[1]',
                 array('required' => 'กรุณากรอกข้อมูล %s.','min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว'));
 		$this->form_validation->set_rules('c_detail', 'รายละเอียดปัญหา', 'trim|required|min_length[5]',
                 array('required' => 'กรุณากรอกข้อมูล %s.','min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 5 ตัว'));
@@ -52,6 +57,7 @@ class Form extends CI_Controller {
 		                		//img
 							 		$config['upload_path']= 'asset/uploads/';
 					                $config['allowed_types']= 'gif|jpg|png|heif|raw|jpeg';
+									$config['max_size']= 0;
 					                $config['encrypt_name']= TRUE;
 
 					                $this->load->library('upload', $config);
@@ -61,7 +67,8 @@ class Form extends CI_Controller {
 					                        $this->load->view('home/header');
 											$this->load->view('home/form_view' , $error);
 											$this->load->view('home/footer');
-					                }else{
+					                }
+									else{
 					                	$this->data_model->insert_case();
 					                	//last id by user case
 					                	$data['qlastid']=$this->data_model->lastid($_POST['c_name']);

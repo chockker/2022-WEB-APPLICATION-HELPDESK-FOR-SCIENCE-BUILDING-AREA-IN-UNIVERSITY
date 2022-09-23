@@ -1,3 +1,4 @@
+<script src ="<?php echo base_url('asset/bt4/js/jquery-3.3.1.slim.min.js');?>"></script>
 <div class="container">
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12" style="background-color: #f77100;">
@@ -55,43 +56,33 @@
             <?php endforeach;?>
           </select>
         </div>
+        </script>
         <div class="form-group col col-md-7" style="font-family:thaisans_neueregular;">
           <label>ตึก</label>
-          <select name="c_town" class="form-control" required>
-          <?php if(set_value('c_town')!=''){?>
-            <option value="<?= set_value('c_town'); ?>"><?= set_value('c_town'); ?></option>
+          <select name="t_num" class="form-control" required>
+          <?php if(set_value('t_num')!=''){?>
+            <option value="<?= set_value('t_num'); ?>"><?= set_value('t_num'); ?></option>
           <?php } else{
               echo '<option value="">Choose...</option>';
           }
           ?>
-            
-            <option value="78">-78-</option>
-            <option value="76">-76-</option>
-            <option value="72">-72-</option>
+            <?php foreach ($t_detail as $trs):?>
+            <option value="<?php echo $trs->t_num;?>"><?php echo $trs->t_num;?></option>
+            <?php endforeach;?>
           </select>
         </div>
         <div class="form-group col col-md-7" style="font-family:thaisans_neueregular;">
           <label>ชั้น</label>
-          <select name="c_floor" class="form-control" required>
-          <?php if(set_value('c_floor')!=''){?>
-            <option value="<?= set_value('c_floor'); ?>"><?= set_value('c_floor'); ?></option>
+          <select name="fl_no" class="form-control" required>
+          <?php if(set_value('fl_no')!=''){?>
+            <option value="<?= set_value('fl_no'); ?>"><?= set_value('fl_no'); ?></option>
           <?php } else{
               echo '<option value="">Choose...</option>';
           }
           ?>
-            
-            <option value="1">-1-</option>
-            <option value="2">-2-</option>
-            <option value="3">-3-</option>
-            <option value="4">-4-</option>
-            <option value="5">-5-</option>
-            <option value="6">-6-</option>
-            <option value="7">-7-</option>
-            <option value="8">-8-</option>
-            <option value="9">-9-</option>
-            <option value="10">-10-</option>
-            <option value="11">-11-</option>
-            <option value="12">-12-</option>
+            <?php foreach ($fl_detail as $fls):?>
+            <option value="<?php echo $fls->fl_no;?>"><?php echo $fls->fl_no;?></option>
+            <?php endforeach;?>
           </select>
         </div>
         <div class="form-group col col-md-7" style="font-family:thaisans_neueregular;">

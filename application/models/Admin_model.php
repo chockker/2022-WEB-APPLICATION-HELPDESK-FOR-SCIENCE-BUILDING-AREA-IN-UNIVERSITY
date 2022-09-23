@@ -61,6 +61,7 @@ class Admin_model extends CI_Model {
         public function del_admin($id)
         {
                $this->db->delete('admin',array('id'=>$id));
+               $this->db->query('ALTER TABLE admin AUTO_INCREMENT 1');
  
         }
  

@@ -14,8 +14,8 @@ class Data_model extends CI_Model {
                 $data = array(
                         'c_name' => $this->input->post('c_name'),
                         'c_type' => $this->input->post('j_name'),
-                        'c_town' => $this->input->post('c_town'),
-                        'c_floor' => $this->input->post('c_floor'),
+                        'c_town' => $this->input->post('t_num'),
+                        'c_floor' => $this->input->post('fl_no'),
                         'c_detail' => $this->input->post('c_detail'),
                         'c_img' => $filename
 
@@ -152,5 +152,11 @@ class Data_model extends CI_Model {
             $this->db->where('c_type',$c_type,TRUE);
             $query = $this->db->get('case_report');
             return $query->result();
+        }
+        public function del_report($c_id)
+        {
+               $this->db->delete('case_report',array('c_id'=>$c_id));
+               $this->db->query('ALTER TABLE case_report AUTO_INCREMENT 1');
+ 
         }
 }

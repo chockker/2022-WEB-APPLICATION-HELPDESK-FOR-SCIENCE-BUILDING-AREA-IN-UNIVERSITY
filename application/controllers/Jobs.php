@@ -93,6 +93,12 @@ class Jobs extends CI_Controller {
 		$this->load->view('backend/jobs_list',$data);
 		$this->load->view('template/footer');
 	}
+	public function del($c_id)
+	{
+		$this->data_model->del_report($c_id);
+		$this->session->set_flashdata('del_success', TRUE);
+		redirect('jobs','refresh');	
+	}
  
  
 }
