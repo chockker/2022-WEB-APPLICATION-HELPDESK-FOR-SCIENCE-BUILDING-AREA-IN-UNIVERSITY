@@ -56,7 +56,7 @@
                                             <td><?= $rrs->town;?></td>
                                             <!-- <td><//?= $flrs->fld_img;?></td> -->
                                             <td>
-                                                <a href="<?php   echo site_url('item/index/'.$rrs->town .'/' .$rrs->floor); ?>" class="btn btn-info btn-xs">
+                                                <a href="<?php   echo site_url('item/index/'.$rrs->r_name); ?>" class="btn btn-info btn-xs">
                                                     view
                                                 </a>
                                             </td>

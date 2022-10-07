@@ -32,7 +32,6 @@
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 25%;">ชื่อ</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ประเภท</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 7%;">ห้อง</th>
-                                            <th  tabindex="0" rowspan="1" colspan="1" style="width: 7%;">ชั้น</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 7%;">ตึก</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">แก้ไข</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ลบ</th>
@@ -46,8 +45,7 @@
                                             <td><?= $itrs->i_codename;?></td>
                                             <td><?= $itrs->i_name;?></td>
                                             <td><?= $itrs->i_type;?></td>
-                                            <td><?= $itrs->i_no_room;?></td>
-                                            <td><?= $itrs->floor;?></td>
+                                            <td><?= $itrs->i_address;?></td>
                                             <td><?= $itrs->town;?></td>
                                             <!-- <td><//?= $flrs->fld_img;?></td> -->
                                             

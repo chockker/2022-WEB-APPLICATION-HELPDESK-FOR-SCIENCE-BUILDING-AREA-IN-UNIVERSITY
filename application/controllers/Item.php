@@ -17,10 +17,10 @@ class item extends CI_Controller {
 		$this->load->model('town_model');
 	}
 
-	public function index($town,$floor)
+	public function index($r_name)
 	{
-		$data['query']=$this->item_model->read_item_all($town,$floor);
-		$data['iiq']=$this->item_model->read_town_floor($town,$floor);
+		$data['query']=$this->item_model->read_item_all($r_name);
+		//$data['iiq']=$this->item_model->read_town_floor($town,$floor);
 		$this->load->view('template/header');
 		$this->load->view('backend/item_all',$data);
 		$this->load->view('template/footer');

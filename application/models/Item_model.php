@@ -2,10 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Item_model extends CI_Model {
     //query floor_all
-    public function read_item_all($town,$floor)
+    public function read_item_all($r_name)
     {
-        $this->db->where('town',$town);
-        $this->db->where('floor',$floor);
+        $this->db->where('i_address',$r_name);
         $query = $this->db->get('item');
         if($query->num_rows() > 0)
         {
