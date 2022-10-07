@@ -10,15 +10,20 @@ class Floor extends CI_Controller {
 		if($this->session->userdata('a_status') !=1){
 			redirect('login/logout','refresh');
 		}
+		$this->load->model('town_model');
 		$this->load->model('floor_model');
 	}
 
-	public function index()
+	public function index($t_num)
 	{
-		$data['query']=$this->floor_model->read_floor_list ();
+		$data['query']=$this->floor_model->read_detail_by_town($t_num); 
 		$this->load->view('template/header');
 		$this->load->view('backend/floor_detail_all',$data);
 		$this->load->view('template/footer');
+		// echo '<pre>';
+		// print_r($t_num);
+		// echo '</pre>';
+		// exit();
 	}
 	public function add()
 	{
@@ -59,11 +64,12 @@ class Floor extends CI_Controller {
 					                if($num > 0)
 					                {
 					                       $this->session->set_flashdata('check_duplicate', TRUE);
-							    			redirect('floor','refresh');
+							    			redirect('town','refresh');
 					                }
                                     else{
                                         $config['upload_path']= 'asset/uploads/floor_plan/';
 					                    $config['allowed_types']= 'gif|jpg|png|heif|raw|jpeg';
+										$config['max_size']= 0;
 					                    $config['encrypt_name']= FALSE;
 
 					                    $this->load->library('upload', $config);
@@ -77,7 +83,7 @@ class Floor extends CI_Controller {
 									    else{
                                                 $this->floor_model->insert_floor_detail();
                                                 $this->session->set_flashdata('save_success', TRUE);
-                                                redirect('floor','refresh');
+                                                redirect('floor/adding_detail/','refresh');
                                         }
 									}//check duplicate
 					        }//form vali
@@ -118,21 +124,32 @@ class Floor extends CI_Controller {
                 }else{
 					$config['upload_path']= 'asset/uploads/floor_plan/';
 					$config['allowed_types']= 'gif|jpg|png|heif|raw|jpeg';
+					$config['max_size']= 0;
 					$config['encrypt_name']= FALSE;
 					$this->load->library('upload', $config);
 					if(! $this->upload->do_upload('fld_img'))
 					{
-						$this->floor_model-->update_floor_detail();
+						$error = array('error' => $this->upload->display_errors());
+					    $this->load->view('template/header');
+						$this->load->view('backend/floor_detail_edit' , $error);
+						$this->load->view('template/footer');
+					}else{
+						$this->floor_model->update_floor_detail();
 						$this->session->set_flashdata('save_success', TRUE);
-						redirect('floor','refresh');
+						redirect('town','refresh');
+
 					}
                 	//exit;
                 }
 	}
 
-	public function show_floor_item($fld_id)
+	public function show_floor_item($town,$floor)
 	{	
-		$data['flplan']=$this->floor_model->read_detail($fld_id);
+		$data['flplan']=$this->floor_model->read_detail($town,$floor);
+		// echo '<pre>';
+		// print_r($t_num);
+		// echo '<pre>';
+		// exit();
 		$this->load->view('template/header');
 		$this->load->view('backend/floor_item_all' , $data);
 		$this->load->view('template/footer');
@@ -141,6 +158,6 @@ class Floor extends CI_Controller {
 	{
 		$this->floor_model->del_floor_detail($fld_id);
 		$this->session->set_flashdata('del_success', TRUE);
-		redirect('floor','refresh');	
+		redirect('town','refresh');	
 	}
 }

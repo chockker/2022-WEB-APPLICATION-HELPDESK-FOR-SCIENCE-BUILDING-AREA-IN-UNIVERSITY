@@ -23,7 +23,7 @@
                                             Username
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" name="a_username" class="form-control" required placeholder="Username" value="<?= $rsedit->a_username; ?>" disabled>
+                                            <input type="text" name="a_username" class="form-control" required  value="<?= $rsedit->a_username; ?>" disabled>
                                             
                                         </div>
                                     </div>
@@ -33,10 +33,11 @@
                                             ชื่อ
                                         </div>
                                         <div class="col-sm-4">
-                                            <input type="text" name="a_name" class="form-control" required placeholder="ชื่อ ขั้นต่ำ 4 ตัว" value="<?= $rsedit->a_name; ?>" minlength="4">
+                                            <input type="text" name="a_name" class="form-control" required  value="<?= $rsedit->a_name; ?>" minlength="4">
                                             <span class="fr"><?= form_error('a_name'); ?></span>
                                         </div>
                                     </div>
+                                    
                                     <div class="form-group">
                                         <div class="col-sm-2 control-label">
                                             Status
@@ -45,10 +46,11 @@
                                             <select name="a_status" required class="form-control">
                                                 <span class="fr"><?= form_error('a_status'); ?></span>
                                                 <option value="<?= $rsedit->a_status;?>">
-                                                    <?php if($rsedit->a_status==1){echo 'Online';}else{echo 'Ban';}?>  </option>
+                                                    <?php if($rsedit->a_status==1){echo 'Admin';}elseif($rsedit->a_status==2){echo 'ผู้จัดการ';}else{echo 'ช่าง';}?>  </option>
                                                     <option value="">--เปลี่ยน---</option>
-                                                    <option value="1">-Online</option>
-                                                    <option value="0">-Ban</option>
+                                                    <option value="1">-Admin</option>
+                                                    <option value="2">-ผู้จัดการ</option>
+                                                    <option value="0">-ช่าง</option>
                                             </select>
                                         </div>
                                     </div>

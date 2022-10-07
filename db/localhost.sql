@@ -35,7 +35,8 @@ CREATE TABLE `case_report` (
   `c_name` varchar(50) NOT NULL,
   `c_type` varchar(50) NOT NULL,
   `c_town` varchar(10) NOT NULL,
-  `c_floor` varchar(10) NOT NULL,
+  `c_room` varchar(50) NOT NULL,
+  `c_item` varchar(50) NOT NULL,
   `c_detail` text NOT NULL,
   `c_img` varchar(50) NOT NULL,
   `c_status` varchar(50) NOT NULL DEFAULT 1,
@@ -72,7 +73,7 @@ CREATE TABLE `admin` (
   `a_username` varchar(50) NOT NULL,
   `a_password` varchar(50) NOT NULL,
   `a_name` varchar(50) NOT NULL,
-  `a_status` int(1) NOT NULL COMMENT '0=BAN, 1=Online'
+  `a_status` int(1) NOT NULL COMMENT '0=ช่าง, 1=Admin 2=ผู้จัดการ,'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
  
 ALTER TABLE `admin`
@@ -138,6 +139,18 @@ CREATE TABLE `floor_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
+CREATE TABLE `item` (
+  `i_id` int(50) NOT NULL,
+  `i_codename` varchar(100) NOT NULL,
+  `i_name` varchar(50) NOT NULL,
+  `i_type` varchar(50) NOT NULL,
+  `town` varchar(50) NOT NULL,
+  `i_address` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `item`
+--
 
 --
 -- Table structure for table `town`
@@ -158,6 +171,17 @@ INSERT INTO `town` (`t_id`, `t_num`, `t_fl_amt`) VALUES
 (1, '78', 10),
 (2, '75', 12);
 
+-- --------------------------------------------------------
+
+CREATE TABLE `room` (
+  `r_id` int(10) NOT NULL,
+  `r_name` varchar(50) NOT NULL,
+  `r_type` varchar(50) NOT NULL,
+  `floor` varchar(50) NOT NULL,
+  `town` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
 --
 -- Indexes for dumped tables
 --
@@ -174,6 +198,11 @@ ALTER TABLE `floor_detail`
 ALTER TABLE `town`
   ADD PRIMARY KEY (`t_id`);
 
+ALTER TABLE `item`
+  ADD PRIMARY KEY (`i_id`);
+
+ALTER TABLE `room`
+  ADD PRIMARY KEY (`r_id`);
 --
 -- AUTO_INCREMENT for dumped tables
 --
@@ -186,6 +215,12 @@ ALTER TABLE `floor`
 --
 ALTER TABLE `floor_detail`
   MODIFY `fld_id` int(5) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `room`
+  MODIFY `r_id` int(10) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `item`
+  MODIFY `i_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 ALTER TABLE `town`
   MODIFY `t_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

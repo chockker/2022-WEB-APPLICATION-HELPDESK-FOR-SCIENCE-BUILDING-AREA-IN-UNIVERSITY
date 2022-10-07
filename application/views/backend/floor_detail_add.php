@@ -52,7 +52,7 @@
                                             รูปภาพ floor plan
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="file" name="fld_img" class="form-control" accept="image/*" required  value="<?= set_value('fld_img'); ?>">
+                                            <input type="file" name="fld_img" class="form-control" accept="image/*" required >
                                             <span class="fr"><?= form_error('fld_img'); ?></span>
                                         </div>
                                     </div>
@@ -64,7 +64,7 @@
                                         <div class="col-sm-3">
                                             <button class="btn btn-primary" type="submit">
                                             <i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button>
-                                            <a class="btn btn-danger" href="<?php echo  site_url('floor'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
+                                            <a class="btn btn-danger" href="<?php echo  site_url('town'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
                                             
                                             
                                         </div>

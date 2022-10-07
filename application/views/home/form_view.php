@@ -1,4 +1,3 @@
-<script src ="<?php echo base_url('asset/bt4/js/jquery-3.3.1.slim.min.js');?>"></script>
 <div class="container">
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12" style="background-color: #f77100;">
@@ -59,30 +58,38 @@
         </script>
         <div class="form-group col col-md-7" style="font-family:thaisans_neueregular;">
           <label>ตึก</label>
-          <select name="t_num" class="form-control" required>
+          <select name="t_num" id="town" class="form-control" required>
           <?php if(set_value('t_num')!=''){?>
             <option value="<?= set_value('t_num'); ?>"><?= set_value('t_num'); ?></option>
           <?php } else{
-              echo '<option value="">Choose...</option>';
+              echo '<option value="">กรุณาเลือกตึก</option>';
           }
           ?>
             <?php foreach ($t_detail as $trs):?>
-            <option value="<?php echo $trs->t_num;?>"><?php echo $trs->t_num;?></option>
+            <option value="<?php echo $trs->t_num;?>"><?php echo $trs->t_num ,' ', $trs->t_name;?></option>
             <?php endforeach;?>
           </select>
         </div>
         <div class="form-group col col-md-7" style="font-family:thaisans_neueregular;">
-          <label>ชั้น</label>
-          <select name="fl_no" class="form-control" required>
-          <?php if(set_value('fl_no')!=''){?>
-            <option value="<?= set_value('fl_no'); ?>"><?= set_value('fl_no'); ?></option>
+          <label>ห้อง</label>
+          <select name="r_name" id="room" class="form-control" required>
+          <?php if(set_value('r_name')!=''){?>
+            <option value="<?= set_value('r_name'); ?>"><?= set_value('r_name'); ?></option>
           <?php } else{
-              echo '<option value="">Choose...</option>';
+              echo '<option value="">กรุณาเลือกห้อง</option>';
           }
           ?>
-            <?php foreach ($fl_detail as $fls):?>
-            <option value="<?php echo $fls->fl_no;?>"><?php echo $fls->fl_no;?></option>
-            <?php endforeach;?>
+          </select>
+        </div>
+        <div class="form-group col col-md-7" style="font-family:thaisans_neueregular;">
+          <label>อุปกรณ์</label>
+          <select name="i_codename" id="item" class="form-control" required>
+          <?php if(set_value('i_codename')!=''){?>
+            <option value="<?= set_value('i_codename'); ?>"><?= set_value('i_codename'); ?></option>
+          <?php } else{
+              echo '<option value="">กรุณาเลือกอุปกรณ์ที่ชำรุด</option>';
+          }
+          ?>
           </select>
         </div>
         <div class="form-group col col-md-7" style="font-family:thaisans_neueregular;">
@@ -103,3 +110,38 @@
     
   </div>
 </div>
+<script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#town').change(function(){
+      var t_num = $('#town').val();
+      if(t_num != '')
+      {
+        $.ajax({
+          url:"<?php echo base_url('form/action') ?>",
+          method:"POST",
+          data:{t_num:t_num,function:'action'},
+          success:function(data)
+          {
+            $('#room').html(data);
+          }
+        });
+      }
+    });
+    $('#room').change(function(){
+      var r_name = $('#room').val();
+      if(r_name != '')
+      {
+        $.ajax({
+          url:"<?php echo base_url('form/action2') ?>",
+          method:"POST",
+          data:{r_name:r_name,function:'action2'},
+          success:function(data)
+          {
+            $('#item').html(data);
+          }
+        });
+      }
+    });
+  });
+</script>

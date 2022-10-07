@@ -19,8 +19,8 @@ class Town_model extends CI_Model {
         $query=$this->db->insert('town',$data);
     }
     //show form town_edit
-	 public function read($t_id)
-     {
+	public function read($t_id)
+    {
         $this->db->where('t_id',$t_id);
         $query = $this->db->get('town');
         if($query->num_rows() > 0){
@@ -30,7 +30,7 @@ class Town_model extends CI_Model {
         return FALSE;
     }
     public function update_town()
-        {
+    {
                 $data = array(
                     't_num' => $this->input->post('t_num'),
                     't_name' => $this->input->post('t_name'),
@@ -38,11 +38,12 @@ class Town_model extends CI_Model {
                 );
                 $this->db->where('t_id', $this->input->post('t_id'));
                 $query=$this->db->update('town',$data);
-        }
+    }
     public function del_town($t_id)
-        {
+    {
                $this->db->delete('town',array('t_id'=>$t_id));
                $this->db->query('ALTER TABLE town AUTO_INCREMENT 1');
  
-        }
+    }
+    
 }

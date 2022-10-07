@@ -15,7 +15,8 @@ class Data_model extends CI_Model {
                         'c_name' => $this->input->post('c_name'),
                         'c_type' => $this->input->post('j_name'),
                         'c_town' => $this->input->post('t_num'),
-                        'c_floor' => $this->input->post('fl_no'),
+                        'c_room' => $this->input->post('r_name'),
+                        'c_item' => $this->input->post('i_codename'),
                         'c_detail' => $this->input->post('c_detail'),
                         'c_img' => $filename
 
@@ -158,5 +159,19 @@ class Data_model extends CI_Model {
                $this->db->delete('case_report',array('c_id'=>$c_id));
                $this->db->query('ALTER TABLE case_report AUTO_INCREMENT 1');
  
+        }
+        public function getroomOftown($t_num)
+        {
+                $this->db->where('town',$t_num);
+                $room = $this->db->get('room');
+                return $room->result();
+        }
+        public function getitemOfroom($r_name)
+        {
+                //$this->db->where('town',$towm);
+                $this->db->where('i_address',$r_name);
+                $item = $this->db->get('item');
+                return $item ->result();
+
         }
 }

@@ -29,7 +29,7 @@ class Floor_model extends CI_Model {
         $this->db->insert('floor_detail',$data);
 	}
     public function read_detail($fld_id)
-         {
+    {
                 $this->db->where('fld_id',$fld_id);
                 $query = $this->db->get('floor_detail');
                 if($query->num_rows() > 0){
@@ -37,7 +37,21 @@ class Floor_model extends CI_Model {
                         return $data;
                 }
                 return FALSE;
-        }
+    }
+
+    public function read_detail_by_town($t_num)
+    { 
+                $this->db->where('town',$t_num);
+                $query = $this->db->get('floor_detail');
+                return $query->result();
+    }
+    public function read_detail_by_town_add($t_num)
+    { 
+                $this->db->where('town',$t_num);
+                $query = $this->db->get('floor_detail');
+                return $query->result();
+    }
+
     public function update_floor_detail()
     {
             $filename = $this->upload->file_name;
@@ -55,5 +69,16 @@ class Floor_model extends CI_Model {
             $this->db->delete('floor_detail',array('fld_id'=>$fld_id));
             $this->db->query('ALTER TABLE floor_detail AUTO_INCREMENT 1');
 
+    }
+    public function read_flplan($town,$floor)
+    {
+                $this->db->where('floor',$floor);
+                $this->db->where('town',$town);
+                $query = $this->db->get('floor_detail');
+                if($query->num_rows() > 0){
+                        $data = $query->row();
+                        return $data;
+                }
+                return FALSE;
     }
 }

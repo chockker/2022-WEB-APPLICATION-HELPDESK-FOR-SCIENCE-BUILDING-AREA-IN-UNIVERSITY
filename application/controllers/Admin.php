@@ -42,7 +42,6 @@ class Admin extends CI_Controller {
 		$this->form_validation->set_rules('a_username', 'username', 'trim|required|min_length[4]',
                 array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 4 ตัว'));
  
- 
 		               if ($this->form_validation->run() == FALSE)
 		                {
 						      	$this->load->view('template/header');

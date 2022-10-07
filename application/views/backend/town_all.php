@@ -35,6 +35,7 @@
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">เลขตึก</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 15%;">ชื่อตึก</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">จำนวนชั้น</th>
+                                            <th  tabindex="0" rowspan="1" colspan="1" style="width: 2%;">view</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 2%;">แก้ไข</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 2%;">ลบ</th>
                                         </tr>
@@ -46,6 +47,11 @@
                                             <td><?= $ts->t_num;?></td>
                                             <td><?= $ts->t_name;?></td>
                                             <td><?= $ts->t_fl_amt;?></td>
+
+                                            <td>
+                                                <a href="<?php   echo site_url('floor/index/'.$ts->t_num); ?>" class="btn btn-info btn-xs">
+                                                    view
+                                                </a>
                                             <td>
                                                 <a href="<?php   echo site_url('town/edit/'.$ts->t_id); ?>" class="btn btn-warning btn-xs">
                                                     แก้ไข

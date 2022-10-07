@@ -16,7 +16,7 @@
                             <!-- <h3 class="box-title"> +ข่าวใหม่ </h3> -->
                             </div><!-- /.box-header -->
                             <!-- form start -->
-                            <form role="form" action="<?= site_url('floor/editdata'); ?>" method="post" class="form-horizontal">
+                            <form role="form" action="<?= site_url('floor/editdata'); ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
                                 <div class="box-body">
                                     <div class="form-group">
                                     <div class="col-sm-2 control-label">
@@ -72,7 +72,7 @@
                                             <span class="fr"><?= form_error('fld_id'); ?></span>
                                             <button class="btn btn-primary" type="submit">
                                             <i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button>
-                                            <a class="btn btn-danger" href="<?=  site_url('floor'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
+                                            <a class="btn btn-danger" href="<?=  site_url('town'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
                                             
                                             
                                         </div>

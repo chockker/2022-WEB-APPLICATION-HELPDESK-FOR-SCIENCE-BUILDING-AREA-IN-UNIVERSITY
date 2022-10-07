@@ -23,8 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-//$config['base_url'] = 'http://127.0.0.1/helpdesk/';
-$config['base_url'] = 'https://project-helpdesk.herokuapp.com/';
+$config['base_url'] = 'http://127.0.0.1/helpdesk/';
+//$config['base_url'] = 'https://project-helpdesk.herokuapp.com/';
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +224,7 @@ $config['allow_get_array'] = TRUE;
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 0;
+$config['log_threshold'] = 3;
 
 /*
 |--------------------------------------------------------------------------

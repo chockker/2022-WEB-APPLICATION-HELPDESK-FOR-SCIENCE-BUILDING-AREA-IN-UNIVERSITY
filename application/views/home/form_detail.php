@@ -81,9 +81,15 @@
           </select>
         </div>
         <div class="form-group  row col col-sm-5" style="font-family:thaisans_neueregular;">
-          <label>ชั้น</label>
-          <select name="c_floor" class="form-control" disabled>
-            <option value="<?= $rs_detail->c_floor;?>"><?= $rs_detail->c_floor;?></option>
+          <label>ห้อง</label>
+          <select name="c_room" class="form-control" disabled>
+            <option value="<?= $rs_detail->c_room;?>"><?= $rs_detail->c_room;?></option>
+          </select>
+        </div>
+        <div class="form-group  row col col-sm-5" style="font-family:thaisans_neueregular;">
+          <label>อุปกรณ์</label>
+          <select name="c_item" class="form-control" disabled>
+            <option value="<?= $rs_detail->c_item;?>"><?= $rs_detail->c_room,'_',$rs_detail->c_item;?></option>
           </select>
         </div>
         <div class="form-group row col col-sm-7" style="font-family:thaisans_neueregular;">

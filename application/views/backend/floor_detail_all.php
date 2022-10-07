@@ -19,7 +19,6 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <a class="btn btn-success" href="<?=  site_url('floor/add'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มข้อมูล</a>
-                                <a class="btn btn-default" href="<?=  site_url('floor'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
                             </div>
                             <div class="col-sm-6">
                                 
@@ -50,7 +49,7 @@
                                             <td><?= $flrs->town;?></td>
                                             <!-- <td><//?= $flrs->fld_img;?></td> -->
                                             <td>
-                                                <a href="<?php   echo site_url('floor/show_floor_item/'.$flrs->fld_id); ?>" class="btn btn-info btn-xs">
+                                                <a href="<?php   echo site_url('room/index/'.$flrs->town .'/' .$flrs->floor); ?>" class="btn btn-info btn-xs">
                                                     view
                                                 </a>
                                             </td>

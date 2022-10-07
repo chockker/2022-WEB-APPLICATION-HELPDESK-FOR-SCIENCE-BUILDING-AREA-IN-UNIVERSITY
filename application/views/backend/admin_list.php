@@ -49,9 +49,11 @@
                                             <td>
                                             <?php 
                                             if($rs->a_status==1){
-                                                echo 'Online';
+                                                echo 'Admin';
+                                            }elseif($rs->a_status==2){
+                                                echo 'ผู้จัดการ';
                                             }else{
-                                                echo 'Ban';
+                                                echo 'ช่าง';
                                             }
                                                 ?>  
                                                 </td>
