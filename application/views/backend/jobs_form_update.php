@@ -58,11 +58,21 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-3 control-label">
-                                                ชั้น
+                                                ห้อง
                                             </div>
                                             <div class="col-sm-7">
                                                 <select class="form-control" disabled>
-                                                    <option value="<?= $query->c_town;?>"><?= $query->c_floor;?></option>
+                                                    <option value="<?= $query->c_room;?>"><?= $query->c_room;?></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-3 control-label">
+                                                อุปกรณ์ที่่ชำรุด
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <select class="form-control" disabled>
+                                                    <option value="<?= $query->c_item;?>"><?= $query->c_room,'_',$query->c_item;?></option>
                                                 </select>
                                             </div>
                                         </div>
