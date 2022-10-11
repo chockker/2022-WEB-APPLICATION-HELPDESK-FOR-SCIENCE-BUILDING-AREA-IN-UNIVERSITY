@@ -99,6 +99,28 @@ class Jobs extends CI_Controller {
 		$this->session->set_flashdata('del_success', TRUE);
 		redirect('jobs','refresh');	
 	}
- 
- 
+
+	public function sentwork()
+	{
+		//print_r($_SESSION);
+		$data['query']=$this->data_model->all();
+		$this->load->view('template/header');
+		$this->load->view('backend/jobs_sent',$data);
+		$this->load->view('template/footer');
+	}
+
+/////////////////////function for tech///////////////////////
+
+	public function addwork()
+	{
+		$casework = $this->input->post('c_id');
+		$cw_id = [];
+		foreach($casework as $row){
+			array_push($cw_id, $row);
+		}
+		$this->data_model->insert_tnjob($cw_id);
+		$this->session->set_flashdata('save_success', TRUE);
+		redirect('jobs','refresh');
+		
+	}
 }

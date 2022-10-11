@@ -159,6 +159,7 @@ class Data_model extends CI_Model {
                $this->db->delete('case_report',array('c_id'=>$c_id));
                $this->db->query('ALTER TABLE case_report AUTO_INCREMENT 1');
  
+/////////////////////function for Ajax///////////////////////
         }
         public function getroomOftown($t_num)
         {
@@ -174,4 +175,107 @@ class Data_model extends CI_Model {
                 return $item ->result();
 
         }
+
+/////////////////////function for tech///////////////////////
+        public function Tnall()
+        {
+                $query = $this->db->get('case_work');
+                return $query->result();
+        }
+        //count by status 1
+        public function tstatus1()
+        {
+                $this->db->select('cw_status, COUNT(cw_id) AS totaltstatus1');
+                $this->db->from('case_work');
+                $this->db->where('cw_status',1);
+                $query = $this->db->get();
+                if($query->num_rows() > 0){
+                        $data = $query->row();
+                        return $data;
+                }
+                return FALSE;
+        }
+ 
+        //count by status 2
+        public function tstatus2()
+        {
+                $this->db->select('cw_status, COUNT(cw_id) AS totaltstatus2');
+                $this->db->from('case_work');
+                $this->db->where('cw_status',2);
+                $query = $this->db->get();
+                if($query->num_rows() > 0){
+                        $data = $query->row();
+                        return $data;
+                }
+                return FALSE;
+        }
+ 
+ 
+        //count by status 3
+        public function tstatus3()
+        {
+                $this->db->select('cw_status, COUNT(cw_id) AS totaltstatus3');
+                $this->db->from('case_work');
+                $this->db->where('cw_status',3);
+                $query = $this->db->get();
+                if($query->num_rows() > 0){
+                        $data = $query->row();
+                        return $data;
+                }
+                return FALSE;
+        }
+ 
+ 
+        //count by status 4
+        public function tstatus4()
+        {
+                $this->db->select('cw_status, COUNT(cw_id) AS totaltstatus4');
+                $this->db->from('case_work');
+                $this->db->where('cw_status',4);
+                $query = $this->db->get();
+                if($query->num_rows() > 0){
+                        $data = $query->row();
+                        return $data;
+                }
+                return FALSE;
+        }
+ 
+      //query by status  
+        public function by_status0($status_id)
+        {
+            $this->db->where('cw_status',$status_id);
+            $query = $this->db->get('case_work');
+            return $query->result();
+        }
+        //query count by case_type
+        public function countbycasetype0()
+        {
+            $this->db->select('cw_type, COUNT(cw_id) as casetotal0');
+            $this->db->group_by('cw_type');
+            $this->db->order_by('casetotal0','desc');
+            $query = $this->db->get('case_work');
+            return $query->result();
+        }     
+ 
+        //query count by status
+        public function countbycasestatus0()
+        {
+            $this->db->select('cw_status, COUNT(cw_id) as statustotal0');
+            $this->db->group_by('cw_status');
+            $this->db->order_by('statustotal0','desc');
+            $query = $this->db->get('case_work');
+            return $query->result();
+        }
+        public function insert_tnjob()
+        {
+                $cw_id = $this->input->post('c_id');
+                for ($i=0; $i < sizeof($cw_id); $i++) 
+                { 
+                        $data = array(
+                                'cw_id' => $cw_id[$i]
+                );
+                }
+                $this->db->insert('case_work', $data);
+        }
+
 }

@@ -12,11 +12,10 @@
         <!-- Your Page Content Here -->
         <div class="box">
             <div class="box-header">
-                <a href="<?= site_url('jobs/bystatus/'.$qstatus1->c_status);?>?status=รอดำเนินการ" class="btn btn-primary">  งานใหม่ <span class="badge"><?= $qstatus1->totalstatus1;?></span></a>
-                <a href="<?= site_url('jobs/bystatus/'.$qstatus2->c_status);?>?status=กำลังดำเนินการ" class="btn btn-info"> กำลังทำ <span class="badge"><?= $qstatus2->totalstatus2;?></span></a>
-                <a href="<?= site_url('jobs/bystatus/'.$qstatus3->c_status);?>?status=เสร็จสิ้น" class="btn btn-success"> ปิดงาน <span class="badge"><?= $qstatus3->totalstatus3;?></span></a>
-                <a href="<?= site_url('jobs/bystatus/'.$qstatus4->c_status);?>?status=ยกเลิก" class="btn btn-danger"> ยกเลิก <span class="badge"><?= $qstatus4->totalstatus4;?></span></a>
-                <a href="<?= site_url('jobs/sentwork');?>" class="btn btn-success" style="margin-left:71%">ส่งงานช่าง</a>
+                <a href="<?= site_url('jobs/bystatus/'.$qstatus1->cw_status);?>?status=รอดำเนินการ" class="btn btn-primary">  งานใหม่ <span class="badge"><?= $qstatus1->totaltstatus1;?></span></a>
+                <a href="<?= site_url('jobs/bystatus/'.$qstatus2->cw_status);?>?status=กำลังดำเนินการ" class="btn btn-info"> กำลังทำ <span class="badge"><?= $qstatus2->totaltstatus2;?></span></a>
+                <a href="<?= site_url('jobs/bystatus/'.$qstatus3->cw_status);?>?status=เสร็จสิ้น" class="btn btn-success"> ปิดงาน <span class="badge"><?= $qstatus3->totaltstatus3;?></span></a>
+                <a href="<?= site_url('jobs/bystatus/'.$qstatus4->cw_status);?>?status=ยกเลิก" class="btn btn-danger"> ยกเลิก <span class="badge"><?= $qstatus4->totaltstatus4;?></span></a>
                 <br><br>
                 <h3 class="box-title">ตารางข้อมูล : <font color="red"><?= $this->input->get('status');?></font> </h3>
                 </div><!-- /.box-header -->
@@ -40,13 +39,13 @@
                                     <tbody>
                                         <?php foreach ($query as $rs) { ?>
                                         <tr role="row">
-                                            <td align="center"><?= $rs->c_id;?></td>
-                                            <td><?= $rs->c_type;?></td>
+                                            <td align="center"><?= $rs->cw_id;?></td>
+                                            <td><?= $rs->cw_type;?></td>
                                             <td><?= 
-                                            $rs->c_detail
+                                            $rs->cw_detail
                                             .'<br>'
                                             .'ว/ด/ป '
-                                            .date('d/m/Y H:i:s',strtotime($rs->c_date_save))
+                                            .date('d/m/Y H:i:s',strtotime($rs->cw_date_save))
                                             .' น.'
                                             ;?></td>
                                             <td>
@@ -56,11 +55,11 @@
                                                 ;?></td>
                                             <td>
                                                 <?php
-                                                if($rs->c_status==1){
+                                                if($rs->cw_status==1){
                                                 echo 'รอดำเนินการ';
-                                                }elseif($rs->c_status==2){
+                                                }elseif($rs->cw_status==2){
                                                 echo 'กำลังดำเนินการ';
-                                                }elseif($rs->c_status==3){
+                                                }elseif($rs->cw_status==3){
                                                 echo 'เสร็จสิ้น';
                                                 }else{
                                                 echo 'ยกเลิก';
@@ -68,12 +67,12 @@
                                                 ?>
                                             </td>
                                             <td>
-                                                <a href="<?php   echo site_url('jobs/getupdate/'.$rs->c_id); ?>" class="btn btn-success btn-xs">
+                                                <a href="<?php   echo site_url('jobs/getupdate/'.$rs->cw_id); ?>" class="btn btn-success btn-xs">
                                                     จัดการ
                                                 </a>
                                             </td>
                                             <td>
-                                                <a class="btn btn-danger btn-xs" href="<?= site_url('jobs/del/'.$rs->c_id); ?>" role="button" onclick="return confirm('ยืนยันการลบข้อมูล??');"><i class="fa fa-fw fa-trash" ></i> ลบ</a>
+                                                <a class="btn btn-danger btn-xs" href="<?= site_url('jobs/del/'.$rs->cw_id); ?>" role="button" onclick="return confirm('ยืนยันการลบข้อมูล??');"><i class="fa fa-fw fa-trash" ></i> ลบ</a>
                                             </td>
                                         </tr>
                                         <?php  } ?>

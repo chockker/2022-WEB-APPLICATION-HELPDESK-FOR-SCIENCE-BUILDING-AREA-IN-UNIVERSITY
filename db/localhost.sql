@@ -186,12 +186,31 @@ CREATE TABLE `room` (
 -- Indexes for dumped tables
 --
 
+--
+-- Table structure for table `case_work`
+--
+
+CREATE TABLE `case_work` (
+  `cw_id` int(10) NOT NULL,
+  `cw_name` varchar(50) NOT NULL,
+  `cw_type` varchar(50) NOT NULL,
+  `cw_town` varchar(50) NOT NULL,
+  `cw_room` varchar(50) NOT NULL,
+  `cw_item` varchar(50) NOT NULL,
+  `cw_detail` text NOT NULL,
+  `cw_img` varchar(50) NOT NULL,
+  `cw_status` varchar(50) NOT NULL,
+  `cw_data_save` varchar(50) NOT NULL,
+  `cw_ad_id` int(10) NOT NULL,
+  `cw_ad_name` varchar(50) NOT NULL,
+  `cw_case_update` datetime DEFAULT NULL,
+  `cw_case_update_log` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
 ALTER TABLE `floor`
   ADD PRIMARY KEY (`fl_id`);
 
---
--- Indexes for table `floor_detail`
---
 ALTER TABLE `floor_detail`
   ADD PRIMARY KEY (`fld_id`);
 
@@ -203,6 +222,9 @@ ALTER TABLE `item`
 
 ALTER TABLE `room`
   ADD PRIMARY KEY (`r_id`);
+
+ALTER TABLE `case_work`
+  ADD PRIMARY KEY (`cw_id`);
 --
 -- AUTO_INCREMENT for dumped tables
 --
@@ -225,6 +247,7 @@ ALTER TABLE `item`
 ALTER TABLE `town`
   MODIFY `t_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

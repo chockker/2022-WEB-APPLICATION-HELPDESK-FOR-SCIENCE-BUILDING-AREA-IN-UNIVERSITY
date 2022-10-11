@@ -37,15 +37,15 @@
                                             <span class="fr"><?= form_error('a_name'); ?></span>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-2 control-label">
-                                            ตำแหน่ง
+                                    <!-- <div class="form-group">
+                                        <div class="col-sm-2 control-label"> -->
+                                            <!-- ตำแหน่ง
                                         </div>
                                         <div class="col-sm-4">
-                                            <input type="text" name="a_level" class="form-control" required  value="<?= $rsedit->a_level; ?>" minlength="4" disabled>
+                                            <input type="text" name="a_level" class="form-control" required  value="<?= $rsedit->a_status;?>" minlength="4" disabled>
                                             <span class="fr"><?= form_error('a_level'); ?></span>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group">
                                         <div class="col-sm-2 control-label">
                                             New Password

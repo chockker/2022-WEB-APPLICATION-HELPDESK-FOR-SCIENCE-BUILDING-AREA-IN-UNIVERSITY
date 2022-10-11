@@ -42,7 +42,7 @@
                                             ชั้น
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" name="floor" class="form-control" required  value="<?= $rradd->floor; ?>" >
+                                            <input type="text" name="floor" class="form-control" required readonly value="<?= $rradd->floor; ?>" >
                                             <span class="fr"><?= form_error('floor'); ?></span>
                                         </div>
                                     </div>
@@ -52,7 +52,7 @@
                                             ตึก
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" name="town" class="form-control" required  value="<?= $rradd->town; ?>">
+                                            <input type="text" name="town" class="form-control" required readonly value="<?= $rradd->town; ?>">
                                             <span class="fr"><?= form_error('town'); ?></span>
                                         </div>
                                     </div>
