@@ -177,7 +177,7 @@ class Data_model extends CI_Model {
         }
 
 /////////////////////function for tech///////////////////////
-        public function Tnall()
+        public function tnall()
         {
                 $query = $this->db->get('case_work');
                 return $query->result();

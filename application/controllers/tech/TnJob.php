@@ -16,7 +16,7 @@ class TnJob extends CI_Controller {
 	public function index()
 	{
 		//print_r($_SESSION);
-		$data['query']=$this->data_model->Tnall();
+		$data['query']=$this->data_model->tnall();
 		$data['qstatus1']=$this->data_model->tstatus1();
 		$data['qstatus2']=$this->data_model->tstatus2();
 		$data['qstatus3']=$this->data_model->tstatus3();
