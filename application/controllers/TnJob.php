@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class TnJob extends CI_Controller {
+class Tnjob extends CI_Controller {
 
 	public function __construct()
 	{
