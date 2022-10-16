@@ -7,10 +7,11 @@ class Jobs extends CI_Controller {
 	{
 		parent::__construct();
 		//chk admin status
-		if($this->session->userdata('a_status') !=1){
+		if($this->session->userdata('a_status') !=1 && $this->session->userdata('a_status') !=0 && $this->session->userdata('a_status') !=2){
 				redirect('login/logout','refresh');
 		}
 		$this->load->model('data_model');
+		$this->load->model('admin_model');
 		$this->load->helper('url');
 	}
  
@@ -41,7 +42,15 @@ class Jobs extends CI_Controller {
 		$this->load->view('template/footer');
 	}
  
+
+	public function getupdateformtech($id)
+	{
+		$data['query']=$this->data_model->get_detail($id);
  
+		$this->load->view('template2/header');
+		$this->load->view('backend/jobs_form_update',$data);
+		$this->load->view('template2/footer');
+	}
  
 	public function updatedata()
 	{
@@ -59,16 +68,25 @@ class Jobs extends CI_Controller {
  
 		if ($this->form_validation->run() == FALSE)
                 {
-                	$id = $this->input->post('c_id');
-			       	$data['query']=$this->data_model->get_detail($id);
-					$this->load->view('template/header');
-					$this->load->view('backend/jobs_form_update',$data);
-					$this->load->view('template/footer');
-                }else{
-					$this->data_model->update_job();
-					$this->session->set_flashdata('save_success', TRUE);
-					redirect('jobs','refresh');
-                } //form vali
+					if($this->session->userdata('a_status') == 1){
+						$id = $this->input->post('c_id');
+						$data['query']=$this->data_model->get_detail($id);
+						$this->load->view('template/header');
+						$this->load->view('backend/jobs_form_update',$data);
+						$this->load->view('template/footer');
+					}
+					elseif($this->session->userdata('a_status') == 0){
+						$id = $this->input->post('c_id');
+						$data['query']=$this->data_model->get_detail($id);
+						$this->load->view('template2/header');
+						$this->load->view('backend/jobs_form_update',$data);
+						$this->load->view('template2/footer');
+					}
+        }else{
+			$this->data_model->update_job();
+			$this->session->set_flashdata('save_success', TRUE);
+			redirect('/tech/tnjob','refresh');
+            } //form vali
 	}
 	public function bystatus($status_id)
 	{
@@ -104,6 +122,7 @@ class Jobs extends CI_Controller {
 	{
 		//print_r($_SESSION);
 		$data['query']=$this->data_model->all();
+		$data['t_na_detail']=$this->admin_model->list_tech();
 		$this->load->view('template/header');
 		$this->load->view('backend/jobs_sent',$data);
 		$this->load->view('template/footer');
@@ -114,11 +133,11 @@ class Jobs extends CI_Controller {
 	public function addwork()
 	{
 		$casework = $this->input->post('c_id');
-		$cw_id = [];
-		foreach($casework as $row){
-			array_push($cw_id, $row);
+		for ($i=0; $i < sizeof($casework); $i++) 
+        { 
+			$cw_id = $casework[$i];
+			$this->data_model->insert_tnjob($cw_id);
 		}
-		$this->data_model->insert_tnjob($cw_id);
 		$this->session->set_flashdata('save_success', TRUE);
 		redirect('jobs','refresh');
 		

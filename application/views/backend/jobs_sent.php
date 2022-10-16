@@ -11,10 +11,29 @@
     <section class="content">
         <!-- Your Page Content Here -->
         <div class="box">
+        <form role="form" action="<?= site_url('jobs/addwork'); ?>" method="post" class="form-horizontal">
             <div class="box-header">
+            <div class="form-group">
+                    <div class="col-sm-1 control-label">
+                        ผู้รับผิดชอบงาน
+                    </div>
+                    <br><br>
+                    <div class="col-sm-2">
+                        <select name="cw_as_name" class="form-control" required>
+                            <?php if(set_value('cw_as_name')!=''){?>
+                                <option value="<?= set_value('cw_as_name'); ?>"><?= set_value('t_num'); ?></option>
+                            <?php } else{
+                                    echo '<option value="">กรุณาเลือกช่าง</option>';
+                            }
+                            ?>
+                            <?php foreach ($t_na_detail as $tqs):?>
+                            <option value="<?php echo $tqs->a_name;?>"><?php echo $tqs->a_name;?></option>
+                            <?php endforeach;?>
+                        </select>
+                    </div>
+                </div>
                 <br><br>
                 </div><!-- /.box-header -->
-                <form role="form" action="<?= site_url('jobs/addwork'); ?>" method="post" class="form-horizontal">
                 <div class="box-body">
                     <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                         <div class="row">

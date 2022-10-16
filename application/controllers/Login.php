@@ -44,8 +44,8 @@ class Login extends CI_Controller {
 				}
 				elseif($a_status==0)
 				{
-						///echo 'r u tech';
-						redirect('tnjob','refresh');
+					///echo 'r u tech';
+					redirect('tech/tnjob','refresh');
 				}else{
 					///u not admin
 					$this->session->set_flashdata('login_error', TRUE);

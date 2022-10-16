@@ -192,19 +192,8 @@ CREATE TABLE `room` (
 
 CREATE TABLE `case_work` (
   `cw_id` int(10) NOT NULL,
-  `cw_name` varchar(50) NOT NULL,
-  `cw_type` varchar(50) NOT NULL,
-  `cw_town` varchar(50) NOT NULL,
-  `cw_room` varchar(50) NOT NULL,
-  `cw_item` varchar(50) NOT NULL,
-  `cw_detail` text NOT NULL,
-  `cw_img` varchar(50) NOT NULL,
-  `cw_status` varchar(50) NOT NULL,
-  `cw_data_save` varchar(50) NOT NULL,
-  `cw_ad_id` int(10) NOT NULL,
-  `cw_ad_name` varchar(50) NOT NULL,
-  `cw_case_update` datetime DEFAULT NULL,
-  `cw_case_update_log` text NOT NULL
+  `cw_as_name` varchar(50) NOT NULL,
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 

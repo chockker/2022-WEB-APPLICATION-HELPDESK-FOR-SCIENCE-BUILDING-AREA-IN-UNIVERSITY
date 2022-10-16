@@ -179,15 +179,19 @@ class Data_model extends CI_Model {
 /////////////////////function for tech///////////////////////
         public function tnall()
         {
-                $query = $this->db->get('case_work');
+                $this->db->select('*');
+                $this->db->from('case_work');
+                $this->db->join('case_report','c_id = cw_id','left');
+                $query = $this->db->get();
                 return $query->result();
         }
         //count by status 1
         public function tstatus1()
         {
-                $this->db->select('cw_status, COUNT(cw_id) AS totaltstatus1');
+                $this->db->select('c_status, COUNT(cw_id) AS totaltstatus1');
                 $this->db->from('case_work');
-                $this->db->where('cw_status',1);
+                $this->db->join('case_report','c_id = cw_id','left');
+                $this->db->where('c_status',1);
                 $query = $this->db->get();
                 if($query->num_rows() > 0){
                         $data = $query->row();
@@ -199,9 +203,10 @@ class Data_model extends CI_Model {
         //count by status 2
         public function tstatus2()
         {
-                $this->db->select('cw_status, COUNT(cw_id) AS totaltstatus2');
+                $this->db->select('c_status, COUNT(cw_id) AS totaltstatus2');
                 $this->db->from('case_work');
-                $this->db->where('cw_status',2);
+                $this->db->join('case_report','c_id = cw_id','left');
+                $this->db->where('c_status',2);
                 $query = $this->db->get();
                 if($query->num_rows() > 0){
                         $data = $query->row();
@@ -214,9 +219,10 @@ class Data_model extends CI_Model {
         //count by status 3
         public function tstatus3()
         {
-                $this->db->select('cw_status, COUNT(cw_id) AS totaltstatus3');
+                $this->db->select('c_status, COUNT(cw_id) AS totaltstatus3');
                 $this->db->from('case_work');
-                $this->db->where('cw_status',3);
+                $this->db->join('case_report','c_id = cw_id','left');
+                $this->db->where('c_status',3);
                 $query = $this->db->get();
                 if($query->num_rows() > 0){
                         $data = $query->row();
@@ -229,9 +235,10 @@ class Data_model extends CI_Model {
         //count by status 4
         public function tstatus4()
         {
-                $this->db->select('cw_status, COUNT(cw_id) AS totaltstatus4');
+                $this->db->select('c_status, COUNT(cw_id) AS totaltstatus4');
                 $this->db->from('case_work');
-                $this->db->where('cw_status',4);
+                $this->db->join('case_report','c_id = cw_id','left');
+                $this->db->where('c_status',4);
                 $query = $this->db->get();
                 if($query->num_rows() > 0){
                         $data = $query->row();
@@ -266,16 +273,26 @@ class Data_model extends CI_Model {
             $query = $this->db->get('case_work');
             return $query->result();
         }
-        public function insert_tnjob()
+        public function insert_tnjob($cw_id)
         {
-                $cw_id = $this->input->post('c_id');
-                for ($i=0; $i < sizeof($cw_id); $i++) 
-                { 
-                        $data = array(
-                                'cw_id' => $cw_id[$i]
+                $data = array(
+                        'cw_id' => $cw_id,
+                        'cw_as_name' => $this->input->post('cw_as_name')
                 );
-                }
                 $this->db->insert('case_work', $data);
         }
-
+        public function del_report_work($cw_id)
+        {
+               $this->db->delete('case_work',array('cw_id'=>$cw_id));
+        }
+        public function print_report($cw_id)
+        {
+                $this->db->select('*');
+                $this->db->from('case_work');
+                $this->db->join('case_report','c_id = cw_id','left');
+                $this->db->where('c_id',$cw_id);
+                $query = $this->db->get();
+                return $query->result();
+        }
 }
+

@@ -64,6 +64,12 @@ class Admin_model extends CI_Model {
                $this->db->query('ALTER TABLE admin AUTO_INCREMENT 1');
  
         }
+        public function list_tech()
+        {   
+                $this->db->where('a_status',0);
+                $query = $this->db->get('admin');
+                return $query->result();
+        }
  
  
 }
