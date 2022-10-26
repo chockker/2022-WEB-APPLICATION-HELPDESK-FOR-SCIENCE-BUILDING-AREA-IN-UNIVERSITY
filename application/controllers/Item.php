@@ -79,7 +79,7 @@ class item extends CI_Controller {
                                     else{
                                             $this->item_model->insert_item();
                                             $this->session->set_flashdata('save_success', TRUE);
-                                            redirect('item/adding','refresh');
+                                            redirect('item/add','refresh');
                                         }
 							}//check duplicate
 	}//valid

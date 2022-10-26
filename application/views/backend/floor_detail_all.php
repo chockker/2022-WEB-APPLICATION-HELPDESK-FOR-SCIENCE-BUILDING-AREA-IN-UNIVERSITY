@@ -49,7 +49,7 @@
                                             <td><?= $flrs->town;?></td>
                                             <!-- <td><//?= $flrs->fld_img;?></td> -->
                                             <td>
-                                                <a href="<?php   echo site_url('room/index/'.$flrs->town .'/' .$flrs->floor); ?>" class="btn btn-info btn-xs">
+                                                <a href="<?php   echo site_url('room/index/'.$flrs->town .'/' .$flrs->floor ) ; ?>" class="btn btn-info btn-xs">
                                                     view
                                                 </a>
                                             </td>

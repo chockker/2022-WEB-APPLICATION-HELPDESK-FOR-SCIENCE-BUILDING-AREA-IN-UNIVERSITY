@@ -30,11 +30,6 @@ class Form extends CI_Controller {
 
 	public function adding()
 	{
-
-		// echo '<pre>';
-		// print_r($_POST);
-		// echo '</pre>';
-
 		$this->form_validation->set_rules('c_name', 'ชื่อผู้แจ้ง', 'trim|required|min_length[3]',
 				array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 3 ตัว'));
 		$this->form_validation->set_rules('j_name', 'ประเภทปัญหา', 'trim|required|min_length[1]',

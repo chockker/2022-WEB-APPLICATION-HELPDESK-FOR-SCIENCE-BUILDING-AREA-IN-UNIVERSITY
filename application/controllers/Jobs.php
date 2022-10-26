@@ -48,7 +48,7 @@ class Jobs extends CI_Controller {
 		$data['query']=$this->data_model->get_detail($id);
  
 		$this->load->view('template2/header');
-		$this->load->view('backend/jobs_form_update',$data);
+		$this->load->view('backend2/jobs_update_tech',$data);
 		$this->load->view('template2/footer');
 	}
  
@@ -67,7 +67,7 @@ class Jobs extends CI_Controller {
                 array('required' => 'ชื่อช่างห้ามว่าง %s.', 'min_length' => 'ชื่อช่างห้ามว่าง'));
  
 		if ($this->form_validation->run() == FALSE)
-                {
+        {
 					if($this->session->userdata('a_status') == 1){
 						$id = $this->input->post('c_id');
 						$data['query']=$this->data_model->get_detail($id);
@@ -79,13 +79,20 @@ class Jobs extends CI_Controller {
 						$id = $this->input->post('c_id');
 						$data['query']=$this->data_model->get_detail($id);
 						$this->load->view('template2/header');
-						$this->load->view('backend/jobs_form_update',$data);
+						$this->load->view('backend2/jobs_update_tech',$data);
 						$this->load->view('template2/footer');
 					}
         }else{
-			$this->data_model->update_job();
-			$this->session->set_flashdata('save_success', TRUE);
-			redirect('/tech/tnjob','refresh');
+				if($this->session->userdata('a_status') == 1){
+					$this->data_model->update_job();
+					$this->session->set_flashdata('save_success', TRUE);
+					redirect('jobs','refresh');
+				}
+				elseif($this->session->userdata('a_status') == 0){
+					$this->data_model->update_job();
+					$this->session->set_flashdata('save_success', TRUE);
+					redirect('/tech/tnjob','refresh');
+				}
             } //form vali
 	}
 	public function bystatus($status_id)

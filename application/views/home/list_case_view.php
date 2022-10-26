@@ -9,16 +9,16 @@ $('#example').DataTable( {
 });
 } );
 </script>
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12" style="background-color: #f77100;">
-      <h3 style="margin:50px; color:#FFFFFF;text-align:center;font-family:thaisans_neueregular;">
-        :แจ้งซ่อมอุปกรณ์ของตึกวิทยาศาสตร์:
+      <h3 style="margin:40px; color:#FFFFFF;text-align:center;font-family:thaisans_neueregular;">
+        รายการที่แจ้งเข้ามาทั้งหมด
       </h3>
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col col-sm-12 col-md-12" style="padding:0px">
       <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #292b2c;">
@@ -42,6 +42,7 @@ $('#example').DataTable( {
     </div>
   </div>
 </div>
+<div class= "container-fluid" style="background: url(<?= base_url('./asset/uploads/bgkm.jpg')?>); background-size: 1920px 800px">
 <div class="container" style="margin-top: 10px">
   <div class="row">
     <div class="col col-sm-12 col-md-12">
@@ -95,4 +96,5 @@ $('#example').DataTable( {
       </table>
     </div>
   </div>
+</div>
 </div>

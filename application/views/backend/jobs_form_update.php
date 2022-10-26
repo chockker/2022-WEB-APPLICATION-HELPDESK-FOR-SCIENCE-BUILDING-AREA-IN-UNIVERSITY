@@ -146,8 +146,8 @@
                                             <div class="form-group">
                                                 <div class="col-sm-12">
                                                     <button class="btn btn-primary" type="submit">
-                                                    <i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button>
-                                                    <a class="btn btn-danger" href="<?=  site_url('jobs'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
+                                                    <i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button>         
+                                                    <a class="btn btn-danger" href="<?=site_url('jobs'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
                                                 </div>
                                             </div>
                                         </div>

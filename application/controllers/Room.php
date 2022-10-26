@@ -12,6 +12,7 @@ class Room extends CI_Controller {
 		}
 		$this->load->model('room_model');
         $this->load->model('floor_model');
+		$this->load->model('town_model');
 	}
 
 	public function index($town,$floor)
@@ -23,11 +24,12 @@ class Room extends CI_Controller {
 		$this->load->view('backend/room_all',$data);
 		$this->load->view('template/footer');
 	}
-	public function add($r_id)
+	public function add()
 	{
-		$data['rradd']=$this->room_model->read_detail($r_id);
+		$data['fqs']=$this->floor_model->read_floor_all();
+		$data['tqs']=$this->town_model->read_town_all();
 		$this->load->view('template/header');
-		$this->load->view('backend/room_add' , $data);
+		$this->load->view('backend/room_add' ,$data);
 		$this->load->view('template/footer');
 	}
 	public function adding()
@@ -51,7 +53,7 @@ class Room extends CI_Controller {
 		               if ($this->form_validation->run() == FALSE)
 		                {
 						      	$this->load->view('template/header');
-								$this->load->view('backend/floor_detail_add' , array('error' => ' ' ));
+								$this->load->view('backend/room_add' , array('error' => ' ' ));
 								$this->load->view('template/footer');
 		                }else{
  
@@ -69,7 +71,7 @@ class Room extends CI_Controller {
                                     else{
                                             $this->room_model->insert_room();
                                             $this->session->set_flashdata('save_success', TRUE);
-                                            redirect('town','refresh');
+                                            redirect('room/add','refresh');
 									}//check duplicate
 					        }//form vali
 	}

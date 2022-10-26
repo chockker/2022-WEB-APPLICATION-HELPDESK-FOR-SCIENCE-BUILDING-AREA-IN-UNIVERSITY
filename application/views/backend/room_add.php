@@ -42,8 +42,17 @@
                                             ชั้น
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" name="floor" class="form-control" required readonly value="<?= $rradd->floor; ?>" >
-                                            <span class="fr"><?= form_error('floor'); ?></span>
+                                        <select name="floor" class="form-control" required>
+                                            <?php if(set_value('floor')!=''){?>
+                                                <option value="<?= set_value('floor'); ?>"><?= set_value('floor'); ?></option>
+                                            <?php } else{
+                                                echo '<option value="">กรุณาเลือกเลขชั้น</option>';
+                                            }
+                                            ?>
+                                                <?php foreach ($fqs as $fall):?>
+                                                <option value="<?php echo $fall->fl_no;?>"><?php echo $fall->fl_no;?></option>
+                                                <?php endforeach;?>
+                                            </select>
                                         </div>
                                     </div>
 
@@ -52,8 +61,17 @@
                                             ตึก
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" name="town" class="form-control" required readonly value="<?= $rradd->town; ?>">
-                                            <span class="fr"><?= form_error('town'); ?></span>
+                                        <select name="town" class="form-control" required>
+                                            <?php if(set_value('town')!=''){?>
+                                                <option value="<?= set_value('town'); ?>"><?= set_value('town'); ?></option>
+                                            <?php } else{
+                                                echo '<option value="">กรุณาเลือกเลขตึก</option>';
+                                            }
+                                            ?>
+                                                <?php foreach ($tqs as $tall):?>
+                                                <option value="<?php echo $tall->t_num;?>"><?php echo $tall->t_num," ",$tall->t_name;?></option>
+                                                <?php endforeach;?>
+                                            </select>
                                         </div>
                                     </div>
                                     

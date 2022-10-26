@@ -23,7 +23,7 @@
                     <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                         <div class="row">
                             <div class="col-sm-6">
-                                <a class="btn btn-success" href="<?=  site_url('room/add' .'/' .$rrq->r_id); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มข้อมูล</a>
+                                <a class="btn btn-success" href="<?=  site_url('room/add'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มข้อมูล</a>
                             </div>
                             <div class="col-sm-6">
                                 

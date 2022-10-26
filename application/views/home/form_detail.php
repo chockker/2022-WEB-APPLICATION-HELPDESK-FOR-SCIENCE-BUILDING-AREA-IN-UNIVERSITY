@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12" style="background-color: #f77100;">
     <h3 style="margin:50px; color:#FFFFFF;text-align:center;font-family:thaisans_neueregular;" >
-       :รายละเอียดการแจ้งซ่อม:
+       รายละเอียดการแจ้งซ่อม
       </h3>
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col col-sm-12 col-md-12" style="padding:0px">
             <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #292b2c;">
@@ -31,6 +31,7 @@
         </div>
     </div>
 </div>
+<div class= "container-fluid" style="background: url(<?= base_url('./asset/uploads/bgkm.jpg')?>); background-size: 1920px 800px">
 <div class="container" style="margin-top: 50px">
   <div class="row">
     <div class="col-sm-2 col-md-2"></div>
@@ -102,4 +103,5 @@
     </div>
     
   </div>
+</div>
 </div>
