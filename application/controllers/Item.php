@@ -73,12 +73,12 @@ class item extends CI_Controller {
 					        $num = $query->num_rows();
 					                if($num > 0)
 					                {
-					                       $this->session->set_flashdata('check_duplicate', TRUE);
+					                       //$this->session->set_flashdata('check_duplicate', TRUE);
 							    			redirect('town','refresh');
 					                }
                                     else{
                                             $this->item_model->insert_item();
-                                            $this->session->set_flashdata('save_success', TRUE);
+                                            //$this->session->set_flashdata('save_success', TRUE);
                                             redirect('item/add','refresh');
                                         }
 							}//check duplicate
@@ -125,7 +125,7 @@ class item extends CI_Controller {
                 }else{
 					
 					$this->item_model-->update_item();
-					$this->session->set_flashdata('save_success', TRUE);
+					//$this->session->set_flashdata('save_success', TRUE);
 					redirect('town','refresh');
 					
                 	//exit;
@@ -134,7 +134,7 @@ class item extends CI_Controller {
 	public function del_item($i_id)
 	{
 		$this->item_model->del_item($i_id);
-		$this->session->set_flashdata('del_success', TRUE);
+		//$this->session->set_flashdata('del_success', TRUE);
 		redirect('town','refresh');	
 	}
 }

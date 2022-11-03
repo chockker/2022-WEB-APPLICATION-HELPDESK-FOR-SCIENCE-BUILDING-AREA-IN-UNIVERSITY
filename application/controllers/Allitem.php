@@ -23,7 +23,7 @@ class Allitem extends CI_Controller {
 	public function del_item($i_id)
 	{
 		$this->item_model->del_item($i_id);
-		$this->session->set_flashdata('del_success', TRUE);
+		//$this->session->set_flashdata('del_success', TRUE);
 		redirect('allitem','refresh');	
 	}
 }

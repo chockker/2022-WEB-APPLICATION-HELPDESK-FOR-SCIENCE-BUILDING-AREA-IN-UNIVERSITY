@@ -57,11 +57,11 @@ class Admin extends CI_Controller {
 					        $num = $query->num_rows();
 					                if($num > 0)
 					                {
-					                       $this->session->set_flashdata('check_duplicate', TRUE);
+					                       //$this->session->set_flashdata('check_duplicate', TRUE);
 							    			redirect('admin','refresh');
 					                }else{
 							            $this->admin_model->insert_admin();
-							            $this->session->set_flashdata('save_success', TRUE);
+							            //$this->session->set_flashdata('save_success', TRUE);
 									    redirect('admin','refresh');
 									}//check duplicate
 					        }//form vali
@@ -102,7 +102,7 @@ class Admin extends CI_Controller {
                 }else{
                 	//exit;
 					$this->admin_model->update_admin();
-					$this->session->set_flashdata('save_success', TRUE);
+					//$this->session->set_flashdata('save_success', TRUE);
 					redirect('admin','refresh');
                 }
 	}
@@ -137,7 +137,7 @@ class Admin extends CI_Controller {
                 else
                 {
                 	$this->admin_model->update_pwd_admin();
-                	$this->session->set_flashdata('save_success', TRUE);
+                	//$this->session->set_flashdata('save_success', TRUE);
 					redirect('admin','refresh');       
                 }
 	}
@@ -145,7 +145,7 @@ class Admin extends CI_Controller {
 	public function del($id)
 	{
 		$this->admin_model->del_admin($id);
-		$this->session->set_flashdata('del_success', TRUE);
+		//$this->session->set_flashdata('del_success', TRUE);
 		redirect('admin','refresh');	
 	}
 }

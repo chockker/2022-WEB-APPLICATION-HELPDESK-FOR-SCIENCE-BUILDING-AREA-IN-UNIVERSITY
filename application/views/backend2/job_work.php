@@ -78,7 +78,7 @@
                                                 <a class="btn btn-danger btn-xs" href="<?= site_url('tech/tnjob/del/'.$rs->cw_id); ?>" role="button" onclick="return confirm('ยืนยันการลบข้อมูล??');"><i class="fa fa-fw fa-trash" ></i> ลบ</a>
                                             </td>
                                             <td>
-                                                <a class="btn btn-danger btn-xs" href="<?= site_url('tech/tnjob/pdfdetail/'.$rs->cw_id); ?>" role="button"></i>print</a>
+                                                <a class="btn btn-danger btn-xs" href="<?= site_url('jobs/getupdateformtechtoprint/'.$rs->cw_id); ?>" role="button"></i>print</a>
                                             </td>
                                         </tr>
                                         <?php  } ?>

@@ -51,6 +51,14 @@ class Jobs extends CI_Controller {
 		$this->load->view('backend2/jobs_update_tech',$data);
 		$this->load->view('template2/footer');
 	}
+	public function getupdateformtechtoprint($id)
+	{
+		$data['query']=$this->data_model->get_detail($id);
+ 
+		$this->load->view('template2/header');
+		$this->load->view('backend2/report2',$data);
+		$this->load->view('template2/footer');
+	}
  
 	public function updatedata()
 	{
@@ -85,12 +93,12 @@ class Jobs extends CI_Controller {
         }else{
 				if($this->session->userdata('a_status') == 1){
 					$this->data_model->update_job();
-					$this->session->set_flashdata('save_success', TRUE);
+					//$this->session->set_flashdata('save_success', TRUE);
 					redirect('jobs','refresh');
 				}
 				elseif($this->session->userdata('a_status') == 0){
 					$this->data_model->update_job();
-					$this->session->set_flashdata('save_success', TRUE);
+					//$this->session->set_flashdata('save_success', TRUE);
 					redirect('/tech/tnjob','refresh');
 				}
             } //form vali
@@ -121,7 +129,7 @@ class Jobs extends CI_Controller {
 	public function del($c_id)
 	{
 		$this->data_model->del_report($c_id);
-		$this->session->set_flashdata('del_success', TRUE);
+		//$this->session->set_flashdata('del_success', TRUE);
 		redirect('jobs','refresh');	
 	}
 
@@ -145,7 +153,7 @@ class Jobs extends CI_Controller {
 			$cw_id = $casework[$i];
 			$this->data_model->insert_tnjob($cw_id);
 		}
-		$this->session->set_flashdata('save_success', TRUE);
+		//$this->session->set_flashdata('save_success', TRUE);
 		redirect('jobs','refresh');
 		
 	}

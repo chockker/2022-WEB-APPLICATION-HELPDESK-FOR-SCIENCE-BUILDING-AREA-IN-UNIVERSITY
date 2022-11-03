@@ -48,13 +48,13 @@ class Login extends CI_Controller {
 					redirect('tech/tnjob','refresh');
 				}else{
 					///u not admin
-					$this->session->set_flashdata('login_error', TRUE);
+					//$this->session->set_flashdata('login_error', TRUE);
 					$this->session->unset_userdata(array('id','a_status','a_name'));
 					redirect('login', 'refresh');
 				}
 				
 			}else{
-				$this->session->set_flashdata('login_error', TRUE);
+				//$this->session->set_flashdata('login_error', TRUE);
 				$this->session->unset_userdata(array('id','a_status','a_name'));
 				redirect('login', 'refresh');
 			}
@@ -62,7 +62,7 @@ class Login extends CI_Controller {
 	}
     public function logout()
     {
-        $this->session->set_flashdata('logout_success', TRUE);
+        //$this->session->set_flashdata('logout_success', TRUE);
         $this->session->unset_userdata(array('id','a_status','a_name'));
         redirect('', 'refresh');
     }

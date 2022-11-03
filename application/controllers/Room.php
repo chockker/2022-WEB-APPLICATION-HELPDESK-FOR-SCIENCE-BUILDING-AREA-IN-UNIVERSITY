@@ -65,12 +65,12 @@ class Room extends CI_Controller {
 					        $num = $query->num_rows();
 					                if($num > 0)
 					                {
-					                       $this->session->set_flashdata('check_duplicate', TRUE);
+					                       //$this->session->set_flashdata('check_duplicate', TRUE);
 							    			redirect('town','refresh');
 					                }
                                     else{
                                             $this->room_model->insert_room();
-                                            $this->session->set_flashdata('save_success', TRUE);
+                                            //$this->session->set_flashdata('save_success', TRUE);
                                             redirect('room/add','refresh');
 									}//check duplicate
 					        }//form vali
@@ -113,14 +113,14 @@ class Room extends CI_Controller {
                 }else{
                 	//exit;
 					$this->room_model->update_room();
-					$this->session->set_flashdata('save_success', TRUE);
+					//$this->session->set_flashdata('save_success', TRUE);
 					redirect('town','refresh');
                 }
 	}
 	public function del($r_id)
 	{
 		$this->room_model->del_room($r_id);
-		$this->session->set_flashdata('del_success', TRUE);
+		//$this->session->set_flashdata('del_success', TRUE);
 		redirect('town','refresh');	
 	}
 }

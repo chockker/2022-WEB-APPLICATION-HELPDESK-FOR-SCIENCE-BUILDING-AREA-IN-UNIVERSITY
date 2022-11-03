@@ -74,7 +74,7 @@ class Form extends CI_Controller {
 					                	//echo $_POST['p_email'];
 					                	//print_r($data);
 					                	//echo $data['qlastid']->id;
-					                	$this->session->set_flashdata('save_success', TRUE);
+					                	//$this->session->set_flashdata('save_success', TRUE);
 					                	redirect('form/detail/'.$data['qlastid']->c_id,'refresh');
 					                }
 

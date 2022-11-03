@@ -79,7 +79,7 @@ $db['default'] = array(
 	// 'hostname' => 'localhost',
 	// 'username' => 'root',
 	// 'password' => '',
-	// 'database' => 'project_helpdesk',
+	// 'database' => 'project_helpdesk', 
 
 	//--for cloud server--
 	'hostname' => 'us-cdbr-east-06.cleardb.net',

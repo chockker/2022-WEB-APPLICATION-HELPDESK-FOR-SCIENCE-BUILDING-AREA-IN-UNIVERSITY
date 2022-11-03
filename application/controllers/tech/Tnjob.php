@@ -32,37 +32,37 @@ class Tnjob extends CI_Controller {
 	public function del($cw_id)
 	{
 		$this->data_model->del_report_work($cw_id);
-		$this->session->set_flashdata('del_success', TRUE);
+		//$this->session->set_flashdata('del_success', TRUE);
 		redirect('/tech/tnjob','refresh');	
 	}
 
 
 //////////////////////PDF/////////////////////////////
-	public function pdfdetail($cw_id)
-	{
-		$defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
-		$fontDirs = $defaultConfig['fontDir'];
+	// public function pdfdetail($cw_id)
+	// {
+	// 	$defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
+	// 	$fontDirs = $defaultConfig['fontDir'];
 
-		$defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
-		$fontData = $defaultFontConfig['fontdata'];
+	// 	$defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
+	// 	$fontData = $defaultFontConfig['fontdata'];
 
-		$mpdf = new \Mpdf\Mpdf([
-			'fontDir' => array_merge($fontDirs, [
-				__DIR__ . '/tmp',
-			]),
-			'fontdata' => $fontData + [ // lowercase letters only in font key
-				'sarabun' => [
-					'R' => 'THSarabunNew.ttf',
-					'I' => 'THSarabunNew Italic.ttf',
-					'B' => 'THSarabunNew Bold.ttf',
-					'BI' => 'THSarabunNew BoldItalic.ttf'
-				]
-			],
-			'default_font' => 'sarabun'
-		]);
-		$data['rp_detail'] = $this->data_model->print_report($cw_id);
-        $html = $this->load->view('backend2/report',$data,TRUE);
-        $mpdf->WriteHTML($html);
-        $mpdf->Output();
-	}
+	// 	$mpdf = new \Mpdf\Mpdf([
+	// 		'fontDir' => array_merge($fontDirs, [
+	// 			__DIR__ . '/tmp',
+	// 		]),
+	// 		'fontdata' => $fontData + [ // lowercase letters only in font key
+	// 			'sarabun' => [
+	// 				'R' => 'THSarabunNew.ttf',
+	// 				'I' => 'THSarabunNew Italic.ttf',
+	// 				'B' => 'THSarabunNew Bold.ttf',
+	// 				'BI' => 'THSarabunNew BoldItalic.ttf'
+	// 			]
+	// 		],
+	// 		'default_font' => 'sarabun'
+	// 	]);
+	// 	$data['rp_detail'] = $this->data_model->print_report($cw_id);
+    //     $html = $this->load->view('backend2/report',$data,TRUE);
+    //     $mpdf->WriteHTML($html);
+    //     $mpdf->Output();
+	// }
 }
