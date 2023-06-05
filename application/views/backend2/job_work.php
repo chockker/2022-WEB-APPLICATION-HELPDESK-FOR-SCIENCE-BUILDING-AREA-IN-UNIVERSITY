@@ -1,7 +1,10 @@
-<div class="content-wrapper">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&family=Noto+Sans+Thai+Looped&display=swap" rel="stylesheet">
+<div class="content-wrapper" style="font-family:'Mitr', sans-serif">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
+        <h1 style="font-family:'Mitr', sans-serif">
         จัดการรายการแจ้งซ่อม
         </h1>
     </section>
@@ -12,12 +15,12 @@
         <!-- Your Page Content Here -->
         <div class="box">
             <div class="box-header">
-                <a href="<?= site_url('jobs/bystatus/'.$qstatus1->c_status);?>?status=รอดำเนินการ" class="btn btn-primary">  งานใหม่ <span class="badge"><?= $qstatus1->totaltstatus1;?></span></a>
-                <a href="<?= site_url('jobs/bystatus/'.$qstatus2->c_status);?>?status=กำลังดำเนินการ" class="btn btn-info"> กำลังทำ <span class="badge"><?= $qstatus2->totaltstatus2;?></span></a>
-                <a href="<?= site_url('jobs/bystatus/'.$qstatus3->c_status);?>?status=เสร็จสิ้น" class="btn btn-success"> ปิดงาน <span class="badge"><?= $qstatus3->totaltstatus3;?></span></a>
+                <a href="<?= site_url('jobs/bystatus/'.$qstatus1->c_status);?>?status=รอดำเนินการ" class="btn btn-primary">  รอดำเนินการ <span class="badge"><?= $qstatus1->totaltstatus1;?></span></a>
+                <a href="<?= site_url('jobs/bystatus/'.$qstatus2->c_status);?>?status=กำลังดำเนินการ" class="btn btn-info"> กำลังดำเนินการ <span class="badge"><?= $qstatus2->totaltstatus2;?></span></a>
+                <a href="<?= site_url('jobs/bystatus/'.$qstatus3->c_status);?>?status=เสร็จสิ้น" class="btn btn-success"> เสร็จสิ้น <span class="badge"><?= $qstatus3->totaltstatus3;?></span></a>
                 <a href="<?= site_url('jobs/bystatus/'.$qstatus4->c_status);?>?status=ยกเลิก" class="btn btn-danger"> ยกเลิก <span class="badge"><?= $qstatus4->totaltstatus4;?></span></a>
                 <br><br>
-                <h3 class="box-title">ตารางข้อมูล : <font color="red"><?= $this->input->get('status');?></font> </h3>
+                <h3 class="box-title" style="font-family:'Mitr', sans-serif">ตารางข้อมูล : <font color="red"><?= $this->input->get('status');?></font> </h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
@@ -29,13 +32,14 @@
                                         <tr role="row" class="info">
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">No.</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ประเภท</th>
-                                            <th  tabindex="0" rowspan="1" colspan="1" style="width: 30%;">รายละเอียด</th>
-                                            <th  tabindex="0" rowspan="1" colspan="1" style="width: 18%;">ผู้แจ้ง</th>
+                                            <th  tabindex="0" rowspan="1" colspan="1" style="width: 27%;">รายละเอียด</th>
+                                            <th  tabindex="0" rowspan="1" colspan="1" style="width: 15%;">ผู้แจ้ง</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 8%;">สถานะ</th>
-                                            <th  tabindex="0" rowspan="1" colspan="1" style="width: 12%;">ผู้รับผิดชอบ</th>
+                                            <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ผู้รับผิดชอบ</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">จัดการ</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ลบ</th>
-                                            <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">Print</th>
+                                            <th  tabindex="0" rowspan="1" colspan="1" style="width: 7%;">ใบแจ้งซ่อม</th>
+                                            <th  tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ใบรายงานผล</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -70,15 +74,18 @@
                                             </td>
                                             <td><?= $rs->cw_as_name;?></td>
                                             <td>
-                                                <a href="<?php   echo site_url('jobs/getupdateformtech/'.$rs->cw_id); ?>" class="btn btn-success btn-xs">
+                                                <a href="<?php   echo site_url('jobs/getupdateformtech/'.$rs->cw_id); ?>" class="btn btn-success btn">
                                                     จัดการ
                                                 </a>
                                             </td>
                                             <td>
-                                                <a class="btn btn-danger btn-xs" href="<?= site_url('tech/tnjob/del/'.$rs->cw_id); ?>" role="button" onclick="return confirm('ยืนยันการลบข้อมูล??');"><i class="fa fa-fw fa-trash" ></i> ลบ</a>
+                                                <a class="btn btn-danger btn" href="<?= site_url('tech/tnjob/del/'.$rs->cw_id); ?>" role="button" onclick="return confirm('ยืนยันการลบข้อมูล??');"><i class="fa fa-fw fa-trash" ></i> ลบ</a>
                                             </td>
                                             <td>
-                                                <a class="btn btn-danger btn-xs" href="<?= site_url('jobs/getupdateformtechtoprint/'.$rs->cw_id); ?>" role="button"></i>print</a>
+                                                <a class="btn btn-danger btn" style="margin-left:20%" href="<?= site_url('jobs/getupdateformtechtoprint2/'.$rs->cw_id); ?>" role="button"></i>print</a>
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-danger btn" style="margin-left:20%" href="<?= site_url('jobs/getupdateformtechtoprint/'.$rs->cw_id); ?>" role="button"></i>print</a>
                                             </td>
                                         </tr>
                                         <?php  } ?>

@@ -1,7 +1,10 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&family=Noto+Sans+Thai+Looped&display=swap" rel="stylesheet">
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
+        <h1 style="font-family:'Mitr', sans-serif">
         ข้อมูลอุปกรณ์ภายในห้องทั้งหมด
         </h1>
     </section>
@@ -10,9 +13,9 @@
     <!-- Main content -->
     <section class="content">
         <!-- Your Page Content Here -->
-        <div class="box">
+        <div class="box" style="font-family:'Mitr', sans-serif">
             <div class="box-header">
-                <h3 class="box-title">ตารางข้อมูล</h3>
+                <h3 class="box-title" style="font-family:'Mitr', sans-serif">ตารางข้อมูล</h3>
                 </div><!-- /.box-header -->
                 <div class="form-group">
                     <div class="col-sm-2 control-label">
@@ -36,6 +39,7 @@
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ประเภท</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 7%;">ห้อง</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 7%;">ตึก</th>
+                                            <th  tabindex="0" rowspan="1" colspan="1" style="width: 7%;">*หมายเหตุ</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">แก้ไข</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ลบ</th>
                                             <!-- <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">floor plan</th> -->
@@ -50,6 +54,7 @@
                                             <td><?= $itas->i_type;?></td>
                                             <td><?= $itas->i_address;?></td>
                                             <td><?= $itas->town;?></td>
+                                            <td><?= $itas->i_remark;?></td>
                                             <!-- <td><//?= $flrs->fld_img;?></td> -->
                                             
                                             <td>

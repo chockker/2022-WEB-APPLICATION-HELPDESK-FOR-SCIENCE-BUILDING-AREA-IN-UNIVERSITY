@@ -1,13 +1,16 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&family=Noto+Sans+Thai+Looped&display=swap" rel="stylesheet">
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
-        ฟอร์ม Reset Password Admin/ช่าง
+        <h1 style="font-family:'Mitr', sans-serif">
+        Reset Password Admin/ช่าง
         </h1>
     </section>
     <!-- Main content -->
     <section class="content">
-        <div class="container">
+        <div class="container" style="font-family:'Mitr', sans-serif">
             <div class="row">
                 <div class="col-sm-12">
                     <!-- Your Page Content Here -->
@@ -37,15 +40,6 @@
                                             <span class="fr"><?= form_error('a_name'); ?></span>
                                         </div>
                                     </div>
-                                    <!-- <div class="form-group">
-                                        <div class="col-sm-2 control-label"> -->
-                                            <!-- ตำแหน่ง
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <input type="text" name="a_level" class="form-control" required  value="<?= $rsedit->a_status;?>" minlength="4" disabled>
-                                            <span class="fr"><?= form_error('a_level'); ?></span>
-                                        </div>
-                                    </div> -->
                                     <div class="form-group">
                                         <div class="col-sm-2 control-label">
                                             New Password

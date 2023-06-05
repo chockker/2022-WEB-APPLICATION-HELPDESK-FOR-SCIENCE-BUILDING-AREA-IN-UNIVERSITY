@@ -1,8 +1,11 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&family=Noto+Sans+Thai+Looped&display=swap" rel="stylesheet">
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
-        ฟอร์มอัพเดทงานซ่อม
+        <h1 style="font-family:'Mitr', sans-serif">
+        อัพเดทงานซ่อม
         </h1>
     </section>
     <!-- Main content -->
@@ -17,7 +20,7 @@
                             </div><!-- /.box-header -->
                             <!-- form start -->
                             <form role="form" action="<?= site_url('jobs/updatedata'); ?>" method="post" class="form-horizontal">
-                                <div class="box-body">
+                                <div class="box-body" style="font-family:'Mitr', sans-serif">
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <div class="col-sm-3 control-label">
@@ -41,9 +44,8 @@
                                                 ประเภทการแจ้ง
                                             </div>
                                             <div class="col-sm-7">
-                                                <select class="form-control" disabled>
-                                                    <option value="<?= $query->c_type;?>"><?= $query->c_type;?></option>
-                                                </select>
+                                                    <input type="text" class="form-control" disabled value="<?= $query->c_type;?>">
+                                                
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -51,9 +53,8 @@
                                                 ตึก
                                             </div>
                                             <div class="col-sm-7">
-                                                <select class="form-control" disabled>
-                                                    <option value="<?= $query->c_town;?>"><?= $query->c_town;?></option>
-                                                </select>
+                                            <input type="text" class="form-control" disabled value="<?= $query->c_town;?>">
+                                                
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -61,9 +62,8 @@
                                                 ห้อง
                                             </div>
                                             <div class="col-sm-7">
-                                                <select class="form-control" disabled>
-                                                    <option value="<?= $query->c_room;?>"><?= $query->c_room;?></option>
-                                                </select>
+                                            <input type="text" class="form-control" disabled value="<?= $query->c_room;?>">
+                                             
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -71,9 +71,7 @@
                                                 อุปกรณ์ที่่ชำรุด
                                             </div>
                                             <div class="col-sm-7">
-                                                <select class="form-control" disabled>
-                                                    <option value="<?= $query->c_item;?>"><?= $query->c_room,'_',$query->c_item;?></option>
-                                                </select>
+                                                <input type="text" class="form-control" disabled value="<?= $query->c_room,' ',$query->c_item;?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -115,11 +113,10 @@
                                                             }
                                                             ?>
                                                         </option>
-                                                        <option value="">--เปลี่ยน---</option>
-                                                        <option value="1">-รอดำเนินการ</option>
-                                                        <option value="2">-กำลังดำเนินการ</option>
-                                                        <option value="3">-เสร็จสิ้น</option>
-                                                        <option value="4">-ยกเลิก</option>
+                                                        <option value="1">-รอดำเนินการ-</option>
+                                                        <option value="2">-กำลังดำเนินการ-</option>
+                                                        <option value="3">-เสร็จสิ้น-</option>
+                                                        <option value="4">-ยกเลิก-</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-sm-5">

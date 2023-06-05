@@ -1,8 +1,11 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&family=Noto+Sans+Thai+Looped&display=swap" rel="stylesheet">
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
-        จัดการ Admin/ช่าง
+        <h1 style="font-family:'Mitr', sans-serif">
+        รายชื่อทั้งหมด
         </h1>
     </section>
     <!-- Top menu -->
@@ -10,9 +13,9 @@
     <!-- Main content -->
     <section class="content">
         <!-- Your Page Content Here -->
-        <div class="box">
+        <div class="box" style="font-family:'Mitr', sans-serif">
             <div class="box-header">
-                <h3 class="box-title">ตารางข้อมูล</h3>
+                <h3 class="box-title" style="font-family:'Mitr', sans-serif;font-size:20px">ตารางข้อมูล</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">

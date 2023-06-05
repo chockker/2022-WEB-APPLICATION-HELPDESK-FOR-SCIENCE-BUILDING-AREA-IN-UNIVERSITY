@@ -1,3 +1,6 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&family=Noto+Sans+Thai+Looped&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
 <script type="text/javascript" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js">
 </script>
@@ -12,8 +15,8 @@ $('#example').DataTable( {
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12" style="background-color: #f77100;">
-      <h3 style="margin:40px; color:#FFFFFF;text-align:center;font-family:thaisans_neueregular;">
-        รายการที่แจ้งเข้ามาทั้งหมด
+      <h3 style="margin:40px; color:#FFFFFF;text-align:center;font-family:'Mitr', sans-serif;font-size:38px;">
+        ตรวจสอบข้อมูลรายการที่แจ้ง
       </h3>
     </div>
   </div>
@@ -28,13 +31,13 @@ $('#example').DataTable( {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" style="color:#FFFFFF;font-family:thaisans_neueregular;" href="<?= site_url('');?>">แจ้งซ่อม<span class="sr-only">(current)</span></a>
+              <a class="nav-link" style="color:#FFFFFF;font-family:'Mitr', sans-serif;font-size:20px;" href="<?= site_url('');?>">แจ้งซ่อม<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" style="color:#FFFFFF;font-family:thaisans_neueregular;" href="<?= site_url('form/allcase');?>">ติดตามงาน</a>
+              <a class="nav-link" style="color:#FFFFFF;font-family:'Mitr', sans-serif;font-size:20px;" href="<?= site_url('form/allcase');?>">ติดตามงาน</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" style="color:#FFFFFF;font-family:thaisans_neueregular;" href="<?= site_url('login');?>">Login</a>
+              <a class="nav-link" style="color:#FFFFFF;font-family:'Mitr', sans-serif;font-size:20px;" href="<?= site_url('login');?>">Login</a>
             </li>
           </ul>
         </div>
@@ -42,7 +45,7 @@ $('#example').DataTable( {
     </div>
   </div>
 </div>
-<div class= "container-fluid" style="background: url(<?= base_url('./asset/uploads/bgkm.jpg')?>); background-size: 1920px 800px">
+<div class= "container-fluid">
 <div class="container" style="margin-top: 10px">
   <div class="row">
     <div class="col col-sm-12 col-md-12">
@@ -50,7 +53,7 @@ $('#example').DataTable( {
       <!-- datatable : id example & class display -->
       <table id="example" class="table table-bordered table-striped table-hover  display">
         <thead style="background-color: #f77100;">
-          <tr style="color: #ffffff;font-family:thaisans_neueregular;">
+          <tr style="color: #ffffff;font-family:'Mitr', sans-serif;">
             <th style="width: 5%;">No.</th>
             <th style="width: 15%;">ประเภท</th>
             <th style="width: 40%;">รายละเอียด</th>
@@ -61,7 +64,7 @@ $('#example').DataTable( {
         </thead>
         <tbody>
           <?php foreach ($query as $rs) { ?>
-          <tr style="font-family:thaisans_neueregular;">
+          <tr style="font-family:'Mitr', sans-serif;">
             <td align="center"><?= $rs->c_id;?></td>
             <td><?= $rs->c_type;?></td>
             <td><?=
@@ -73,7 +76,7 @@ $('#example').DataTable( {
             ;?></td>
             <td>
               <?=
-              '<b> แจ้งโดย '.$rs->c_name
+              '<b>'.$rs->c_name
               .'</b><br>'
             ;?></td>
             <td>
@@ -89,7 +92,7 @@ $('#example').DataTable( {
               }
               ?>
             </td>
-            <td><a href="<?= site_url('form/detail/'.$rs->c_id);?>" class="btn btn-info btn-sm" target="_blank" style="background-color: #f77100;border-style:none;"> view </a></td>
+            <td><a href="<?= site_url('form/detail/'.$rs->c_id);?>" class="btn btn-info btn-sm" target="_blank" style="background-color: #f77100;border-style:none;font-family:'Mitr', sans-serif"> view </a></td>
           </tr>
           <?php  } ?>
         </tbody>

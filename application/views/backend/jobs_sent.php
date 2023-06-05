@@ -1,7 +1,10 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&family=Noto+Sans+Thai+Looped&display=swap" rel="stylesheet">
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
+        <h1 style="font-family:'Mitr', sans-serif">
         หน้าส่งงานช่าง
         </h1>
     </section>
@@ -10,7 +13,7 @@
     <!-- Main content -->
     <section class="content">
         <!-- Your Page Content Here -->
-        <div class="box">
+        <div class="box" style="font-family:'Mitr', sans-serif">
         <form role="form" action="<?= site_url('jobs/addwork'); ?>" method="post" class="form-horizontal">
             <div class="box-header">
             <div class="form-group">
@@ -21,7 +24,7 @@
                     <div class="col-sm-2">
                         <select name="cw_as_name" class="form-control" required>
                             <?php if(set_value('cw_as_name')!=''){?>
-                                <option value="<?= set_value('cw_as_name'); ?>"><?= set_value('t_num'); ?></option>
+                                <option value="<?= set_value('cw_as_name'); ?>"><?= set_value('cw_as_name'); ?></option>
                             <?php } else{
                                     echo '<option value="">กรุณาเลือกช่าง</option>';
                             }
@@ -32,7 +35,6 @@
                         </select>
                     </div>
                 </div>
-                <br><br>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
@@ -53,10 +55,17 @@
                                     <tbody>
                                         <?php foreach ($query as $rs) { ?>                
                                         <tr>
-                                            <td><input type="checkbox" name="c_id[]" value="<?= $rs->c_id?>"></td>
+                                            <td>
+                                                <input type="checkbox" name="c_id[]" value="<?= $rs->c_id?>"
+                                                <?php if($rs->c_id == $rs->cw_id){echo "checked disabled";}?>>
+                                            </td>
                                             <td><?php echo $rs->c_id ?></td>
                                             <td><?php echo $rs->c_type ?></td>
-                                            <td><?php echo $rs->c_detail ?></td>
+                                            <td><?php echo $rs->c_detail 
+                                                .'<br>'
+                                                .'ว/ด/ป '
+                                                .date('d/m/Y H:i:s',strtotime($rs->c_date_save))
+                                                .' น.'?></td>
                                             <td><?php echo $rs->c_name ?></td>
                                             <td><?php
                                             if($rs->c_status==1){

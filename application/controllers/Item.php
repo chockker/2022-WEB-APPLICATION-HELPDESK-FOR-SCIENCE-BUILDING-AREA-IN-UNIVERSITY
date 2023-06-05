@@ -7,7 +7,7 @@ class item extends CI_Controller {
 	{
 		parent::__construct();
 			//chk admin status
-		if($this->session->userdata('a_status') !=1){
+		if($this->session->userdata('a_status') !=1 && $this->session->userdata('a_status') !=2){
 			redirect('login/logout','refresh');
 		}
 		$this->load->model('item_model');
@@ -19,11 +19,20 @@ class item extends CI_Controller {
 
 	public function index($r_name)
 	{
-		$data['query']=$this->item_model->read_item_all($r_name);
-		//$data['iiq']=$this->item_model->read_town_floor($town,$floor);
-		$this->load->view('template/header');
-		$this->load->view('backend/item_all',$data);
-		$this->load->view('template/footer');
+		if($this->session->userdata('a_status') ==1){
+			$data['query']=$this->item_model->read_item_all($r_name);
+			//$data['iiq']=$this->item_model->read_town_floor($town,$floor);
+			$this->load->view('template/header');
+			$this->load->view('backend/item_all',$data);
+			$this->load->view('template/footer');
+		}
+		if($this->session->userdata('a_status') ==2){
+			$data['query']=$this->item_model->read_item_all($r_name);
+			//$data['iiq']=$this->item_model->read_town_floor($town,$floor);
+			$this->load->view('template2/header');
+			$this->load->view('backend3/item_de_all_m',$data);
+			$this->load->view('template2/footer');
+		}
 	}
     public function add()
 	{
@@ -57,7 +66,6 @@ class item extends CI_Controller {
 		$this->form_validation->set_rules('r_name', 'ห้อง', 'trim|required|min_length[1]',
                 array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว'));
  
- 
 		               if ($this->form_validation->run() == FALSE)
 		                {
 						      	$this->load->view('template/header');
@@ -73,13 +81,13 @@ class item extends CI_Controller {
 					        $num = $query->num_rows();
 					                if($num > 0)
 					                {
-					                       //$this->session->set_flashdata('check_duplicate', TRUE);
-							    			redirect('town','refresh');
+					                       $this->session->set_flashdata('check_duplicate', TRUE);
+							    			redirect('allitem','refresh');
 					                }
                                     else{
                                             $this->item_model->insert_item();
-                                            //$this->session->set_flashdata('save_success', TRUE);
-                                            redirect('item/add','refresh');
+                                            $this->session->set_flashdata('save_success', TRUE);
+                                            redirect('allitem','refresh');
                                         }
 							}//check duplicate
 	}//valid
@@ -87,8 +95,11 @@ class item extends CI_Controller {
 	{
 		$data['iedit']=$this->item_model->read_detail($i_id);
 		$data['j_detail']=$this->jobs_model->read_jobs_all();
+		$data['t_detail']=$this->town_model->read_town_all();
+		$data['r_detail']=$this->room_model->room_all();
+		$data['i_detail']=$this->item_model->item_all();
 		// echo '<pre>';
-		// print_r($data['fledit']);
+		// print_r($data);
 		// echo '</pre>';
 		// exit();
  
@@ -109,24 +120,21 @@ class item extends CI_Controller {
                 array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว'));
 		$this->form_validation->set_rules('j_name', 'ประเภท', 'trim|required|min_length[1]',
                 array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว'));
-		$this->form_validation->set_rules('i_no_room', 'ห้อง', 'trim|required|min_length[1]',
+		$this->form_validation->set_rules('t_num', 'เลขตึก', 'trim|required|min_length[1]',
                 array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว'));
-		$this->form_validation->set_rules('floor', 'ชั้น', 'trim|required|min_length[1]',
-                array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว'));
-		$this->form_validation->set_rules('town', 'เลขตึก', 'trim|required|min_length[1]',
+		$this->form_validation->set_rules('r_name', 'ห้อง', 'trim|required|min_length[1]',
                 array('required' => 'กรุณากรอกข้อมูล %s.', 'min_length' => 'กรุณากรอกข้อมูลขั้นต่ำ 1 ตัว'));
 		if ($this->form_validation->run() == FALSE)
                 {
                 	$i_id = $this->input->post('i_id');
-			        $data['iedit']=$this->item_model-->read_detail($i_id);
+			        $data['iedit']=$this->item_model->read_detail($i_id);
 					$this->load->view('template/header');
 					$this->load->view('backend/item_edit',$data);
 					$this->load->view('template/footer');
                 }else{
-					
-					$this->item_model-->update_item();
-					//$this->session->set_flashdata('save_success', TRUE);
-					redirect('town','refresh');
+					$this->item_model->update_item();
+					$this->session->set_flashdata('save_success', TRUE);
+					redirect('allitem','refresh');
 					
                 	//exit;
                 }
@@ -134,7 +142,7 @@ class item extends CI_Controller {
 	public function del_item($i_id)
 	{
 		$this->item_model->del_item($i_id);
-		//$this->session->set_flashdata('del_success', TRUE);
-		redirect('town','refresh');	
+		$this->session->set_flashdata('del_success', TRUE);
+		redirect('allitem','refresh');	
 	}
 }

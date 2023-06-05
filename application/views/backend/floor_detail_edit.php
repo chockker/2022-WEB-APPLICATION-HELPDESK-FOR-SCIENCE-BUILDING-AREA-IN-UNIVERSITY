@@ -1,13 +1,16 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&family=Noto+Sans+Thai+Looped&display=swap" rel="stylesheet">
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
+        <h1 style="font-family:'Mitr', sans-serif">
         รายละเอียดของแต่ละชั้น
         </h1>
     </section>
     <!-- Main content -->
     <section class="content">
-        <div class="container">
+        <div class="container" style="font-family:'Mitr', sans-serif">
             <div class="row">
                 <div class="col-sm-12">
                     <!-- Your Page Content Here -->

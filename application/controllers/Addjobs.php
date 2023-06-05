@@ -50,11 +50,11 @@ class Addjobs extends CI_Controller {
 					        $num = $query->num_rows();
 					                if($num > 0)
 					                {
-					                       //$this->session->set_flashdata('check_duplicate', TRUE);
+					                       $this->session->set_flashdata('check_duplicate', TRUE);
 							    			redirect('addjobs','refresh');
 					                }else{
 							            $this->jobs_model->insert_jobs();
-							            //$this->session->set_flashdata('save_success', TRUE);
+							            $this->session->set_flashdata('save_success', TRUE);
 									    redirect('addjobs','refresh');
 									}//check duplicate
 					        }//form vali
@@ -92,14 +92,14 @@ class Addjobs extends CI_Controller {
                 }else{
                 	//exit;
 					$this->jobs_model->update_jobs_type();
-					//$this->session->set_flashdata('save_success', TRUE);
+					$this->session->set_flashdata('save_success', TRUE);
 					redirect('addjobs','refresh');
                 }
 	}
 	public function del($j_id)
 	{
 		$this->jobs_model->del_jobs($j_id);
-		//$this->session->set_flashdata('del_success', TRUE);
+		$this->session->set_flashdata('del_success', TRUE);
 		redirect('addjobs','refresh');
 	}
 }

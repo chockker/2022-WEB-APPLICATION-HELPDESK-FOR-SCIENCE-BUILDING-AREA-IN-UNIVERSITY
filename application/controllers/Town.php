@@ -6,17 +6,27 @@ class Town extends CI_Controller {
 	{
 		parent::__construct();
 
-		if($this->session->userdata('a_status') !=1){
+		if($this->session->userdata('a_status') !=1 && $this->session->userdata('a_status') !=2){
 			redirect('login/logout','refresh');
 		}
 		$this->load->model('town_model');
     }
     public function index()
 	{
-		$data['jquery']=$this->town_model->read_town_all ();
-		$this->load->view('template/header');
-		$this->load->view('backend/town_all',$data);
-		$this->load->view('template/footer');
+		if($this->session->userdata('a_status') ==1)
+		{
+			$data['jquery']=$this->town_model->read_town_all ();
+			$this->load->view('template/header');
+			$this->load->view('backend/town_all',$data);
+			$this->load->view('template/footer');
+		}
+		if($this->session->userdata('a_status') ==2)
+		{
+			$data['jquery']=$this->town_model->read_town_all ();
+			$this->load->view('template2/header');
+			$this->load->view('backend3/town_all_m',$data);
+			$this->load->view('template2/footer');
+		}
 	}
     public function add()
 	{
@@ -53,11 +63,11 @@ class Town extends CI_Controller {
 					        $num = $query->num_rows();
 					                if($num > 0)
 					                {
-					                       //$this->session->set_flashdata('check_duplicate', TRUE);
+					                       $this->session->set_flashdata('check_duplicate', TRUE);
 							    			redirect('town','refresh');
 					                }else{
 							            $this->town_model->insert_town();
-							            //$this->session->set_flashdata('save_success', TRUE);
+							            $this->session->set_flashdata('save_success', TRUE);
 									    redirect('town','refresh');
 									}//check duplicate
 					        }//form vali
@@ -96,14 +106,14 @@ class Town extends CI_Controller {
                 }else{
                 	//exit;
 					$this->town_model->update_town();
-					//$this->session->set_flashdata('save_success', TRUE);
+					$this->session->set_flashdata('save_success', TRUE);
 					redirect('town','refresh');
                 }
 	}
     public function del($t_id)
 	{
 		$this->town_model->del_town($t_id);
-		//$this->session->set_flashdata('del_success', TRUE);
+		$this->session->set_flashdata('del_success', TRUE);
 		redirect('town','refresh');
 	}
 }

@@ -38,6 +38,7 @@ class Town_model extends CI_Model {
                 );
                 $this->db->where('t_id', $this->input->post('t_id'));
                 $query=$this->db->update('town',$data);
+ 
     }
     public function del_town($t_id)
     {

@@ -4,7 +4,9 @@ class Data_model extends CI_Model {
 
         public function all()
         {
-                $query = $this->db->get('case_report');
+                $this->db->from('case_report');
+                $this->db->join('item','i_codename = c_item','left');       
+                $query = $this->db->get();
                 return $query->result();
         }
 
@@ -147,6 +149,14 @@ class Data_model extends CI_Model {
             $query = $this->db->get('case_report');
             return $query->result();
         }
+        public function countbyitem()
+        {
+            $this->db->select('c_item, COUNT(c_id) as itemtotal');
+            $this->db->group_by('c_item');
+            $this->db->order_by('itemtotal','desc');
+            $query = $this->db->get('case_report');
+            return $query->result();
+        }
         //query by jobstype
         public function by_jobstype($c_type)
         {
@@ -156,11 +166,121 @@ class Data_model extends CI_Model {
         }
         public function del_report($c_id)
         {
+                
                $this->db->delete('case_report',array('c_id'=>$c_id));
-               $this->db->query('ALTER TABLE case_report AUTO_INCREMENT 1');
- 
-/////////////////////function for Ajax///////////////////////
+               //$this->db->query('ALTER TABLE case_report AUTO_INCREMENT 1');
         }
+        //////////////////////////////////Date find////////////////////////////////////
+        public function date_report_query($date_start,$date_end)
+        {
+                $this->db->from('case_report');
+                $this->db->join('item','i_codename = c_item','left'); 
+               $this->db->where('DATE (c_date_save) BETWEEN"'.date('Y-m-d',strtotime($date_start)).'" AND"'.date('Y-m-d',strtotime($date_end)).'"');
+               $query = $this->db->get();
+               return $query->result();
+        }
+        public function countbyitem2($date_start,$date_end)
+        {
+            $this->db->select('c_item, COUNT(c_id) as itemtotal');
+            $this->db->where('DATE (c_date_save) BETWEEN"'.date('Y-m-d',strtotime($date_start)).'" AND"'.date('Y-m-d',strtotime($date_end)).'"');
+            $this->db->group_by('c_item');
+            $this->db->order_by('itemtotal','desc');
+            $query = $this->db->get('case_report');
+            return $query->result();
+        }
+        public function date_report_chart_1($date_start,$date_end)
+        {
+                $this->db->select('c_type, COUNT(c_id) as casetotal'); 
+                $this->db->where('DATE (c_date_save) BETWEEN"'.date('Y-m-d',strtotime($date_start)).'" AND"'.date('Y-m-d',strtotime($date_end)).'"');
+                $this->db->group_by('c_type');
+                $this->db->order_by('casetotal','desc');
+                $query = $this->db->get('case_report');
+                return $query->result();
+        }
+        public function date_report_chart_2($date_start,$date_end)
+        {
+                $this->db->select('c_status, COUNT(c_id) as statustotal'); 
+                $this->db->where('DATE (c_date_save) BETWEEN"'.date('Y-m-d',strtotime($date_start)).'" AND"'.date('Y-m-d',strtotime($date_end)).'"');
+                $this->db->group_by('c_status');
+                $this->db->order_by('statustotal','desc');
+                $query = $this->db->get('case_report');
+                return $query->result();
+        }
+        public function date_month_report_query($m_date,$y_date)
+        {
+                $this->db->from('case_report');
+                $this->db->join('item','i_codename = c_item','left'); 
+               $this->db->where('MONTH(c_date_save)',$m_date);
+               $this->db->where('YEAR(c_date_save)',$y_date);
+               $query = $this->db->get();
+               return $query->result();
+        }
+        public function countbyitem3($m_date,$y_date)
+        {
+            $this->db->select('c_item, COUNT(c_id) as itemtotal');
+            $this->db->where('MONTH(c_date_save)',$m_date);
+            $this->db->where('YEAR(c_date_save)',$y_date);
+            $this->db->group_by('c_item');
+            $this->db->order_by('itemtotal','desc');
+            $query = $this->db->get('case_report');
+            return $query->result();
+        }
+        public function date_month_report_chart_1($m_date,$y_date)
+        {
+                $this->db->select('c_type, COUNT(c_id) as casetotal');
+                $this->db->where('MONTH(c_date_save)',$m_date);
+                $this->db->where('YEAR(c_date_save)',$y_date);
+                $this->db->group_by('c_type');
+                $this->db->order_by('casetotal','desc');
+                $query = $this->db->get('case_report');
+                return $query->result();
+        }
+        public function date_month_report_chart_2($m_date,$y_date)
+        {
+                $this->db->select('c_status, COUNT(c_id) as statustotal');
+                $this->db->where('MONTH(c_date_save)',$m_date);
+                $this->db->where('YEAR(c_date_save)',$y_date);
+                $this->db->group_by('c_status');
+                $this->db->order_by('statustotal','desc');
+                $query = $this->db->get('case_report');
+                return $query->result();
+        }
+        public function date_year_report_query($yy_date)
+        {
+                $this->db->from('case_report');
+                $this->db->join('item','i_codename = c_item','left'); 
+               $this->db->where('YEAR(c_date_save)',$yy_date);
+               $query = $this->db->get();
+               return $query->result();
+        }
+        public function countbyitem4($yy_date)
+        {
+            $this->db->select('c_item, COUNT(c_id) as itemtotal');
+            $this->db->where('YEAR(c_date_save)',$yy_date);
+            $this->db->group_by('c_item');
+            $this->db->order_by('itemtotal','desc');
+            $query = $this->db->get('case_report');
+            return $query->result();
+        }
+        public function date_year_report_chart_1($yy_date)
+        {
+                $this->db->select('c_type, COUNT(c_id) as casetotal');
+                $this->db->where('YEAR(c_date_save)',$yy_date);
+                $this->db->group_by('c_type');
+                $this->db->order_by('casetotal','desc');
+                $query = $this->db->get('case_report');
+                return $query->result();
+        }
+        public function date_year_report_chart_2($yy_date)
+        {
+                $this->db->select('c_status, COUNT(c_id) as statustotal');
+                $this->db->where('YEAR(c_date_save)',$yy_date);
+                $this->db->group_by('c_status');
+                $this->db->order_by('statustotal','desc');
+                $query = $this->db->get('case_report');
+                return $query->result();
+        }
+/////////////////////function for Ajax///////////////////////
         public function getroomOftown($t_num)
         {
                 $this->db->where('town',$t_num);
@@ -250,9 +370,11 @@ class Data_model extends CI_Model {
       //query by status  
         public function by_status0($status_id)
         {
-            $this->db->where('cw_status',$status_id);
-            $query = $this->db->get('case_work');
-            return $query->result();
+                $this->db->from('case_work');
+                $this->db->join('case_report','c_id = cw_id','left');
+                $this->db->where('c_status',$status_id);
+                $query = $this->db->get();
+                return $query->result();
         }
         //query count by case_type
         public function countbycasetype0()
@@ -272,6 +394,14 @@ class Data_model extends CI_Model {
             $this->db->order_by('statustotal0','desc');
             $query = $this->db->get('case_work');
             return $query->result();
+        }
+        public function t_work_join()
+        {
+                $this->db->select('*');
+                $this->db->from('case_report');
+                $this->db->join('case_work','cw_id = c_id','left');
+                $query = $this->db->get();
+                return $query->result();
         }
         public function insert_tnjob($cw_id)
         {
@@ -294,5 +424,6 @@ class Data_model extends CI_Model {
                 $query = $this->db->get();
                 return $query->result();
         }
+
 }
 

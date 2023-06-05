@@ -1,8 +1,11 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&family=Noto+Sans+Thai+Looped&display=swap" rel="stylesheet">
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12" style="background-color: #f77100;">
-      <h3 style="margin:40px; color:#FFFFFF;text-align:center;font-family:thaisans_neueregular;" >
-      แจ้งซ่อมอุปกรณ์
+      <h3 style="margin:40px; color:#FFFFFF;text-align:center;font-family:'Mitr', sans-serif;font-size:38px" >
+      ระบบรับแจ้งซ่อมอุปกรณ์
       </h3>
     </div>
   </div>
@@ -14,16 +17,16 @@
         <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background-color:#ffffff;">
         <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" style="color:#FFFFFF;font-family:thaisans_neueregular;" href="<?= site_url('');?>">แจ้งซ่อม<span class="sr-only">(current)</span></a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+          <ul class="navbar-nav mr-auto" >
+            <li class="nav-item active" >
+              <a class="nav-link" style="color:#FFFFFF;font-family:'Mitr', sans-serif;font-size:20px" href="<?= site_url('');?>">แจ้งซ่อม<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" style="color:#FFFFFF;font-family:thaisans_neueregular;" href="<?= site_url('form/allcase');?>">ติดตามงาน</a>
+              <a class="nav-link" style="color:#FFFFFF;font-family:'Mitr', sans-serif;font-size:20px" href="<?= site_url('form/allcase');?>">ติดตามงาน</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" style="color:#FFFFFF;font-family:thaisans_neueregular;" href="<?= site_url('login');?>">Login</a>
+              <a class="nav-link" style="color:#FFFFFF;font-family:'Mitr', sans-serif;font-size:20px" href="<?= site_url('login');?>">Login</a>
             </li>
           </ul>
         </div>
@@ -37,12 +40,12 @@
       <div class="col-sm-3 col-md-3" style="margin-top: 30px"></div>
       <div class="col col-sm-9 col-md-9" style="margin-top: 30px">
         <form action="<?= site_url('form/adding');?>" method="post" class="form-horizontal" enctype="multipart/form-data">
-        <div class="form-group col col-md-5" style="font-family:thaisans_neueregular;">
+        <div class="form-group col col-md-5" style="font-family:'Mitr', sans-serif;">
             <label>ชื่อผู้แจ้ง</label>
             <input type="text" name="c_name" class="form-control" required minlength="3" placeholder="*ต้องการข้อมูล" value="<?= set_value('c_name'); ?>">
             <span class="fr"><?= form_error('c_name'); ?></span>
           </div>
-          <div class="form-group col col-md-7" style="font-family:thaisans_neueregular;">
+          <div class="form-group col col-md-7" style="font-family:'Mitr', sans-serif;">
             <label>ประเภทปัญหา</label>
             <select name="j_name" class="form-control" required>
             <?php if(set_value('j_name')!=''){?>
@@ -57,7 +60,7 @@
             </select>
           </div>
           </script>
-          <div class="form-group col col-md-7" style="font-family:thaisans_neueregular;">
+          <div class="form-group col col-md-7" style="font-family:'Mitr', sans-serif;">
             <label>ตึก</label>
             <select name="t_num" id="town" class="form-control" required>
             <?php if(set_value('t_num')!=''){?>
@@ -71,7 +74,7 @@
               <?php endforeach;?>
             </select>
           </div>
-          <div class="form-group col col-md-7" style="font-family:thaisans_neueregular;">
+          <div class="form-group col col-md-7" style="font-family:'Mitr', sans-serif;">
             <label>ห้อง</label>
             <select name="r_name" id="room" class="form-control" required>
             <?php if(set_value('r_name')!=''){?>
@@ -82,7 +85,7 @@
             ?>
             </select>
           </div>
-          <div class="form-group col col-md-7" style="font-family:thaisans_neueregular;">
+          <div class="form-group col col-md-7" style="font-family:'Mitr', sans-serif;">
             <label>อุปกรณ์</label>
             <select name="i_codename" id="item" class="form-control" required>
             <?php if(set_value('i_codename')!=''){?>
@@ -93,18 +96,18 @@
             ?>
             </select>
           </div>
-          <div class="form-group col col-md-7" style="font-family:thaisans_neueregular;">
+          <div class="form-group col col-md-7" style="font-family:'Mitr', sans-serif;">
             <label>รายละเอียดปัญหา</label>
             <textarea name="c_detail" class="form-control" required minlength="5" placeholder="*ต้องการข้อมูล"><?= set_value('c_detail'); ?></textarea>
             <span class="fr"><?= form_error('c_detail'); ?></span>
           </div>
-          <div class="form-group col  col-md-5" style="font-family:thaisans_neueregular;">
+          <div class="form-group col  col-md-5" style="font-family:'Mitr', sans-serif;">
             <label>ภาพประกอบ (บังคับ)</label>
             <input type="file" name="c_img" class="form-control"  accept="image/*" required>
             <!-- <span class="fr"><?= $error;?></span> -->
           </div>
           <div class="form-group col col-md-7">
-            <button type="submit" class="btn btn-primary" style="background-color:#f77100; border-style:none; width: 100%; margin-top:20px;font-family:thaisans_neueregular;">แจ้งซ่อม</button>
+            <button type="submit" class="btn btn-primary" style="background-color:#f77100; border-style:none; width: 100%; margin-top:20px;font-family:'Mitr', sans-serif;">แจ้งซ่อม</button>
           </div>
         </form>
       </div>

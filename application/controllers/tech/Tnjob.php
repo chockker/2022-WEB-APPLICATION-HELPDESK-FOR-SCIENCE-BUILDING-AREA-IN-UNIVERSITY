@@ -20,9 +20,9 @@ class Tnjob extends CI_Controller {
 		$data['qstatus2']=$this->data_model->tstatus2();
 		$data['qstatus3']=$this->data_model->tstatus3();
 		$data['qstatus4']=$this->data_model->tstatus4();
-		$this->load->view('template2/header');
+		$this->load->view('template0/header');
 		$this->load->view('backend2/job_work',$data);
-		$this->load->view('template2/footer');
+		$this->load->view('template0/footer');
 
 		// echo '<pre>';
 		// print_r($data);
@@ -36,33 +36,4 @@ class Tnjob extends CI_Controller {
 		redirect('/tech/tnjob','refresh');	
 	}
 
-
-//////////////////////PDF/////////////////////////////
-	// public function pdfdetail($cw_id)
-	// {
-	// 	$defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
-	// 	$fontDirs = $defaultConfig['fontDir'];
-
-	// 	$defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
-	// 	$fontData = $defaultFontConfig['fontdata'];
-
-	// 	$mpdf = new \Mpdf\Mpdf([
-	// 		'fontDir' => array_merge($fontDirs, [
-	// 			__DIR__ . '/tmp',
-	// 		]),
-	// 		'fontdata' => $fontData + [ // lowercase letters only in font key
-	// 			'sarabun' => [
-	// 				'R' => 'THSarabunNew.ttf',
-	// 				'I' => 'THSarabunNew Italic.ttf',
-	// 				'B' => 'THSarabunNew Bold.ttf',
-	// 				'BI' => 'THSarabunNew BoldItalic.ttf'
-	// 			]
-	// 		],
-	// 		'default_font' => 'sarabun'
-	// 	]);
-	// 	$data['rp_detail'] = $this->data_model->print_report($cw_id);
-    //     $html = $this->load->view('backend2/report',$data,TRUE);
-    //     $mpdf->WriteHTML($html);
-    //     $mpdf->Output();
-	// }
 }

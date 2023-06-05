@@ -1,13 +1,16 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&family=Noto+Sans+Thai+Looped&display=swap" rel="stylesheet">
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
-        ฟอร์มเพิ่มข้อมูลของอุปกรณ์
+        <h1 style="font-family:'Mitr', sans-serif">
+        เพิ่มข้อมูลของอุปกรณ์
         </h1>
     </section>
     <!-- Main content -->
     <section class="content">
-        <div class="container">
+        <div class="container" style="font-family:'Mitr', sans-serif">
             <div class="row">
                 <div class="col-sm-12">
                     <!-- Your Page Content Here -->
@@ -23,7 +26,7 @@
                                             codename
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" name="i_codename" class="form-control" required placeholder="รหัสอุปกรณ์  ตัวอย่าง A01" value="<?= set_value('i_codename'); ?>">
+                                            <input type="text" name="i_codename" class="form-control" required  pattern="^[A-Z0-9]+$" placeholder="รหัสอุปกรณ์  ตัวอย่าง A01" value="<?= set_value('i_codename'); ?>">
                                             <span class="fr"><?= form_error('i_codename'); ?></span>
                                         </div>
                                     </div>
@@ -90,7 +93,15 @@
                                         </select>
                                         </div>
                                     </div>
-                                    
+                                    <div class="form-group">
+                                        <div class="col-sm-2 control-label">
+                                            *หมายเหตุ(ถ้ามี)
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input type="textarea" name="i_remark" class="form-control"  placeholder="รายละเอียดอื่นๆ" value="<?= set_value('i_remark'); ?>">
+                                            <span class="fr"><?= form_error('i_remark'); ?></span>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <div class="col-sm-2 control-label">
                                             

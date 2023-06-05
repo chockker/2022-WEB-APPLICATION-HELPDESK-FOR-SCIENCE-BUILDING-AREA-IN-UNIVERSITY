@@ -76,16 +76,16 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	//--for developer--
-	// 'hostname' => 'localhost',
-	// 'username' => 'root',
-	// 'password' => '',
-	// 'database' => 'project_helpdesk', 
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'project_helpdesk', 
 
 	//--for cloud server--
-	'hostname' => 'us-cdbr-east-06.cleardb.net',
-	'username' => 'be5b10a4b52e29',
-	'password' => 'febbc92e',
-	'database' => 'heroku_60cadff3263fb5a',
+	// 'hostname' => 'us-cdbr-east-06.cleardb.net',
+	// 'username' => 'be5b10a4b52e29',
+	// 'password' => 'febbc92e',
+	// 'database' => 'heroku_60cadff3263fb5a',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

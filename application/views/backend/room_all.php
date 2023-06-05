@@ -1,7 +1,10 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&family=Noto+Sans+Thai+Looped&display=swap" rel="stylesheet">
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
+        <h1 style="font-family:'Mitr', sans-serif">
         ข้อมูลห้องภายในอาคาร
         </h1>
     </section>
@@ -10,9 +13,9 @@
     <!-- Main content -->
     <section class="content">
         <!-- Your Page Content Here -->
-        <div class="box">
+        <div class="box" style="font-family:'Mitr', sans-serif">
             <div class="box-header">
-                <h3 class="box-title" style="font-size:50px"><?= $flplan->fld_name;?></h3>
+                <h3 class="box-title" style="font-family:'Mitr', sans-serif;font-size:50px"><?= $flplan->fld_name;?></h3>
                 </div><!-- /.box-header -->
                 <div class="form-group">
                     <div class="col-sm-2 control-label">
@@ -23,7 +26,6 @@
                     <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                         <div class="row">
                             <div class="col-sm-6">
-                                <a class="btn btn-success" href="<?=  site_url('room/add'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มข้อมูล</a>
                             </div>
                             <div class="col-sm-6">
                                 
@@ -41,8 +43,6 @@
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 15%;">ชั้น</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 15%;">ตึก</th>
                                             <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">view</th>
-                                            <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">แก้ไข</th>
-                                            <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ลบ</th>
                                             <!-- <th  tabindex="0" rowspan="1" colspan="1" style="width: 5%;">floor plan</th> -->
                                         </tr>
                                     </thead>
@@ -59,15 +59,7 @@
                                                 <a href="<?php   echo site_url('item/index/'.$rrs->r_name); ?>" class="btn btn-info btn-xs">
                                                     view
                                                 </a>
-                                            </td>
-                                            <td>
-                                                <a href="<?php   echo site_url('room/edit/'.$rrs->r_id); ?>" class="btn btn-warning btn-xs">
-                                                    แก้ไข
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-danger btn-xs" href="<?= site_url('room/del/'.$rrs->r_id); ?>" role="button" onclick="return confirm('ยืนยันการลบข้อมูล??');"><i class="fa fa-fw fa-trash" ></i> ลบ</a>
-                                            </td>
+                                            </td>                                        
                                         </tr>
                                         <?php  } ?>
                                     </tbody>

@@ -7,7 +7,7 @@ class Room extends CI_Controller {
 	{
 		parent::__construct();
 			//chk admin status
-		if($this->session->userdata('a_status') !=1){
+		if($this->session->userdata('a_status') !=1 && $this->session->userdata('a_status') !=2){
 			redirect('login/logout','refresh');
 		}
 		$this->load->model('room_model');
@@ -17,12 +17,22 @@ class Room extends CI_Controller {
 
 	public function index($town,$floor)
 	{
-		$data['query']=$this->room_model->read_room_all($town,$floor);
-		$data['rrq']=$this->room_model->read_town_floor($town,$floor);
-        $data['flplan']=$this->floor_model->read_flplan($town,$floor);
-		$this->load->view('template/header');
-		$this->load->view('backend/room_all',$data);
-		$this->load->view('template/footer');
+		if($this->session->userdata('a_status') == 1){
+			$data['query']=$this->room_model->read_room_all($town,$floor);
+			$data['rrq']=$this->room_model->read_town_floor($town,$floor);
+			$data['flplan']=$this->floor_model->read_flplan($town,$floor);
+			$this->load->view('template/header');
+			$this->load->view('backend/room_all',$data);
+			$this->load->view('template/footer');
+		}
+		if($this->session->userdata('a_status') == 2){
+			$data['query']=$this->room_model->read_room_all($town,$floor);
+			$data['rrq']=$this->room_model->read_town_floor($town,$floor);
+			$data['flplan']=$this->floor_model->read_flplan($town,$floor);
+			$this->load->view('template2/header');
+			$this->load->view('backend3/room_de_all_m',$data);
+			$this->load->view('template2/footer');
+		}
 	}
 	public function add()
 	{
@@ -65,13 +75,13 @@ class Room extends CI_Controller {
 					        $num = $query->num_rows();
 					                if($num > 0)
 					                {
-					                       //$this->session->set_flashdata('check_duplicate', TRUE);
-							    			redirect('town','refresh');
+					                       $this->session->set_flashdata('check_duplicate', TRUE);
+							    			redirect('allroom','refresh');
 					                }
                                     else{
                                             $this->room_model->insert_room();
-                                            //$this->session->set_flashdata('save_success', TRUE);
-                                            redirect('room/add','refresh');
+                                            $this->session->set_flashdata('save_success', TRUE);
+                                            redirect('allroom','refresh');
 									}//check duplicate
 					        }//form vali
 	}
@@ -113,14 +123,14 @@ class Room extends CI_Controller {
                 }else{
                 	//exit;
 					$this->room_model->update_room();
-					//$this->session->set_flashdata('save_success', TRUE);
-					redirect('town','refresh');
+					$this->session->set_flashdata('save_success', TRUE);
+					redirect('allroom','refresh');
                 }
 	}
 	public function del($r_id)
 	{
 		$this->room_model->del_room($r_id);
-		//$this->session->set_flashdata('del_success', TRUE);
-		redirect('town','refresh');	
+		$this->session->set_flashdata('del_success', TRUE);
+		redirect('allroom','refresh');	
 	}
 }

@@ -7,7 +7,7 @@ class Floor extends CI_Controller {
 	{
 		parent::__construct();
 			//chk admin status
-		if($this->session->userdata('a_status') !=1){
+		if($this->session->userdata('a_status') !=1 && $this->session->userdata('a_status') !=2){
 			redirect('login/logout','refresh');
 		}
 		$this->load->model('town_model');
@@ -16,14 +16,18 @@ class Floor extends CI_Controller {
 
 	public function index($t_num)
 	{
-		$data['query']=$this->floor_model->read_detail_by_town($t_num); 
-		$this->load->view('template/header');
-		$this->load->view('backend/floor_detail_all',$data);
-		$this->load->view('template/footer');
-		// echo '<pre>';
-		// print_r($t_num);
-		// echo '</pre>';
-		// exit();
+		if($this->session->userdata('a_status') == 1){
+			$data['query']=$this->floor_model->read_detail_by_town($t_num); 
+			$this->load->view('template/header');
+			$this->load->view('backend/floor_detail_all',$data);
+			$this->load->view('template/footer');
+		}
+		if($this->session->userdata('a_status') == 2){
+			$data['query']=$this->floor_model->read_detail_by_town($t_num); 
+			$this->load->view('template2/header');
+			$this->load->view('backend3/floor_de_all_m',$data);
+			$this->load->view('template2/footer');
+		}
 	}
 	public function add()
 	{
@@ -63,7 +67,7 @@ class Floor extends CI_Controller {
 					        $num = $query->num_rows();
 					                if($num > 0)
 					                {
-					                       //$this->session->set_flashdata('check_duplicate', TRUE);
+					                       $this->session->set_flashdata('check_duplicate', TRUE);
 							    			redirect('town','refresh');
 					                }
                                     else{
@@ -82,8 +86,8 @@ class Floor extends CI_Controller {
 					                    }
 									    else{
                                                 $this->floor_model->insert_floor_detail();
-                                                //$this->session->set_flashdata('save_success', TRUE);
-                                                redirect('floor/adding_detail/','refresh');
+                                                $this->session->set_flashdata('save_success', TRUE);
+                                                redirect('town','refresh');
                                         }
 									}//check duplicate
 					        }//form vali
@@ -135,7 +139,7 @@ class Floor extends CI_Controller {
 						$this->load->view('template/footer');
 					}else{
 						$this->floor_model->update_floor_detail();
-						//$this->session->set_flashdata('save_success', TRUE);
+						$this->session->set_flashdata('save_success', TRUE);
 						redirect('town','refresh');
 
 					}
@@ -157,7 +161,7 @@ class Floor extends CI_Controller {
 	public function del_fld($fld_id)
 	{
 		$this->floor_model->del_floor_detail($fld_id);
-		//$this->session->set_flashdata('del_success', TRUE);
+		$this->session->set_flashdata('del_success', TRUE);
 		redirect('town','refresh');	
 	}
 }

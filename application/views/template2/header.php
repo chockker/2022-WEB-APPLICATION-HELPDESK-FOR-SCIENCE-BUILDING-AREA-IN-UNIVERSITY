@@ -1,3 +1,6 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&family=Noto+Sans+Thai+Looped&display=swap" rel="stylesheet">
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html>
@@ -38,15 +41,15 @@
     
 </head>
 <body class="hold-transition skin-red sidebar-mini">
-<div class="wrapper">
+<div class="wrapper" style="font-family:'Mitr', sans-serif">
  
   <header class="main-header">
     <!-- Logo -->
     <a href="<?php //echo $mylink;?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>My</b>Backend</span>
+      <span class="logo-mini" style="font-family:'Mitr', sans-serif"><b>ระบบบริหารจัดการงาน</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>ระบบบริหารจัดการงาน</b></span>
+      <span class="logo-lg" style="font-family:'Mitr', sans-serif"><b>ระบบบริหารจัดการงาน</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -99,17 +102,20 @@
           
          <br><br>
         </div>
-        <div class="pull-left info">
+        <div class="col-sm-12 " style="color:#FFFFFF;text-align:center">
  
           <p><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION['a_name'];?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <a href="#"><i class="fa fa-circle text-success"></i> ผู้จัดการ</a>
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
-           <li><a href="<?= site_url('tech/tnjob');?>"><i class="fa fa-home"></i> <span>HOME</span></a></li>
-           <li><a href="<?= site_url('tech/tnjob');?>"><i class="fa fa-home"></i> <span>Jobs</span></a></li>
+        <li class="header">MENU</li>
+           <li><a href="<?= site_url('jobs');?>"><i class="fa fa-home"></i> <span>งานที่แจ้งเข้ามา</span></a></li>
+           <li><a href="<?= site_url('allitem');?>"><i class="fa fa-plug"></i> <span>รายการอุปกรณ์</span></a></li>
+           <li><a href="<?= site_url('allroom');?>"><i class="fa fa-university"></i> <span>รายการห้อง</span></a></li>
+           <li><a href="<?= site_url('town');?>"><i class="fa fa-building-o"></i> <span>ข้อมูลตึก</span></a></li>
+           <li><a href="<?= site_url('conclude');?>"><i class="fa fa-bar-chart"></i> <span>สรุปรายการแจ้งซ่อม</span></a></li>
           <li><a href="<?= site_url('login/logout');?>" onclick="return confirm('do you want to logout ?');"><i class="fa fa-edit"></i> <span>Logout</span></a></li>
       </ul>
     </section>

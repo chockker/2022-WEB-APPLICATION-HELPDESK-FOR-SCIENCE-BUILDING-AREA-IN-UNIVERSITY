@@ -1,7 +1,10 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&family=Noto+Sans+Thai+Looped&display=swap" rel="stylesheet">
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12" style="background-color: #f77100;">
-    <h3 style="margin:50px; color:#FFFFFF;text-align:center;font-family:thaisans_neueregular;" >
+    <h3 style="margin:50px; color:#FFFFFF;text-align:center;font-family:'Mitr', sans-serif;font-size:38px;" >
        รายละเอียดการแจ้งซ่อม
       </h3>
     </div>
@@ -17,13 +20,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" style="color:#FFFFFF;font-family:thaisans_neueregular;" href="<?= site_url('');?>">แจ้งซ่อม<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" style="color:#FFFFFF;font-family:'Mitr', sans-serif;font-size:20px;" href="<?= site_url('');?>">แจ้งซ่อม<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                          <a class="nav-link" style="color:#FFFFFF;font-family:thaisans_neueregular;" href="<?= site_url('form/allcase');?>">ติดตามงาน</a>
+                          <a class="nav-link" style="color:#FFFFFF;font-family:'Mitr', sans-serif;font-size:20px;" href="<?= site_url('form/allcase');?>">ติดตามงาน</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" style="color:#FFFFFF;font-family:thaisans_neueregular;" href="<?= site_url('login');?>">Login</a>
+                            <a class="nav-link" style="color:#FFFFFF;font-family:'Mitr', sans-serif;font-size:20px;" href="<?= site_url('login');?>">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -31,27 +34,27 @@
         </div>
     </div>
 </div>
-<div class= "container-fluid" style="background: url(<?= base_url('./asset/uploads/bgkm.jpg')?>); background-size: 1920px 800px">
+<div class= "container-fluid" >
 <div class="container" style="margin-top: 50px">
   <div class="row">
     <div class="col-sm-2 col-md-2"></div>
     <div class="col col-sm-10 col-md-10">
       <form class="form-horizontal" >
         <div class="form-group row">
-          <div class="col-12 col-sm-2" style="font-family:thaisans_neueregular;">
+          <div class="col-12 col-sm-2" style="font-family:'Mitr', sans-serif;">
             <label>CaseID</label>
             <input type="number" name="c_id" class="form-control"    value="<?= $rs_detail->c_id;?>" disabled>
           </div>
-          <div class="col-12 col-sm-4" style="font-family:thaisans_neueregular;">
+          <div class="col-12 col-sm-4" style="font-family:'Mitr', sans-serif;">
             <label>Status</label>
             <?php
             $st = $rs_detail->c_status;
             if($st==1){
             $stMsg='รอดำเนินการ';
             }elseif ($st==2) {
-            $stMsg='อยู่ระหว่างดำเนินการ';
+            $stMsg='กำลังดำเนินการ';
             }elseif ($st==3) {
-            $stMsg='ดำเนินการเสร็จสิ้น';
+            $stMsg='เสร็จสิ้น';
             }else{
             $stMsg='ยกเลิก';
             }
@@ -59,45 +62,37 @@
             <input type="text" style="color:red;"  class="form-control"  value="<?= $stMsg;?>" disabled>
           </div>
         </div>
-        <div class="form-group row col col-sm-5" style="font-family:thaisans_neueregular;">
+        <div class="form-group row col col-sm-5" style="font-family:'Mitr', sans-serif;;">
           <label>ชื่อผู้แจ้ง</label>
           <input type="text" name="c_name" class="form-control" disabled  value="<?= $rs_detail->c_name;?>">
         </div>
-        <div class="form-group  row col col-sm-7" style="font-family:thaisans_neueregular;">
+        <div class="form-group  row col col-sm-7" style="font-family:'Mitr', sans-serif;">
           <label>ประเภทปัญหา</label>
-          <select name="c_type" class="form-control" disabled>
-            <option value="<?= $rs_detail->c_type;?>"><?= $rs_detail->c_type;?></option>
-          </select>
+          <input type="text" name="c_name" class="form-control" disabled  value="<?= $rs_detail->c_type;?>">
         </div>
-        <div class="form-group row col col-sm-7" style="font-family:thaisans_neueregular;">
+        <div class="form-group row col col-sm-7" style="font-family:'Mitr', sans-serif;">
           <label>รายละเอียดปัญหา</label>
           <textarea name="c_detail" class="form-control" disabled><?= $rs_detail->c_detail;?></textarea>
         </div>
-        <div class="form-group  row col col-sm-5" style="font-family:thaisans_neueregular;">
+        <div class="form-group  row col col-sm-5" style="font-family:'Mitr', sans-serif;">
           <label>ตึก</label>
-          <select name="c_town" class="form-control" disabled>
-            <option value="<?= $rs_detail->c_town;?>"><?= $rs_detail->c_town;?></option>
-          </select>
+          <input type="text" name="c_name" class="form-control" disabled  value="<?= $rs_detail->c_town;?>">
         </div>
-        <div class="form-group  row col col-sm-5" style="font-family:thaisans_neueregular;">
+        <div class="form-group  row col col-sm-5" style="font-family:'Mitr', sans-serif;">
           <label>ห้อง</label>
-          <select name="c_room" class="form-control" disabled>
-            <option value="<?= $rs_detail->c_room;?>"><?= $rs_detail->c_room;?></option>
-          </select>
+          <input type="text" name="c_name" class="form-control" disabled  value="<?= $rs_detail->c_room;?>">
         </div>
-        <div class="form-group  row col col-sm-5" style="font-family:thaisans_neueregular;">
+        <div class="form-group  row col col-sm-5" style="font-family:'Mitr', sans-serif;">
           <label>อุปกรณ์</label>
-          <select name="c_item" class="form-control" disabled>
-            <option value="<?= $rs_detail->c_item;?>"><?= $rs_detail->c_room,'_',$rs_detail->c_item;?></option>
-          </select>
+          <input type="text" name="c_name" class="form-control" disabled  value="<?= $rs_detail->c_room,' ',$rs_detail->c_item;?>">
         </div>
-        <div class="form-group row col col-sm-7" style="font-family:thaisans_neueregular;">
+        <div class="form-group row col col-sm-7" style="font-family:'Mitr', sans-serif;">
           <label>ภาพประกอบ</label>
           <img src="<?= base_url('./asset/uploads/'.$rs_detail->c_img); ?>"width="100%">
         </div>
         <div class="form-group  col col-sm-5">
           <br><br>
-          <a href="<?= site_url('');?>"  class="btn btn-primary" style="background-color:#f77100;border-style:none;font-family:thaisans_neueregular;">กลับหน้าหลัก </a>
+          <a href="<?= site_url('');?>"  class="btn btn-primary" style="background-color:#f77100;border-style:none;font-family:'Mitr', sans-serif;">กลับหน้าหลัก </a>
         </div>
       </form>
     </div>

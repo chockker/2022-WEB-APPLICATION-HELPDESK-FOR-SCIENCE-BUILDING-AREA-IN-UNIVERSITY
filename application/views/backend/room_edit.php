@@ -1,13 +1,16 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&family=Noto+Sans+Thai+Looped&display=swap" rel="stylesheet">
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
-        ฟอร์มแก้ไขข้อมูลห้อง
+        <h1 style="font-family:'Mitr', sans-serif">
+        แก้ไขข้อมูลห้อง
         </h1>
     </section>
     <!-- Main content -->
     <section class="content">
-        <div class="container">
+        <div class="container" style="font-family:'Mitr', sans-serif">
             <div class="row">
                 <div class="col-sm-12">
                     <!-- Your Page Content Here -->
@@ -64,7 +67,7 @@
                                             <span class="fr"><?= form_error('r_td'); ?></span>
                                             <button class="btn btn-primary" type="submit">
                                             <i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button>
-                                            <a class="btn btn-danger" href="<?=  site_url('town'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
+                                            <a class="btn btn-danger" href="<?=  site_url('allroom'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
                                             
                                             
                                         </div>

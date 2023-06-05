@@ -1,8 +1,11 @@
-<div class="content-wrapper">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&family=Noto+Sans+Thai+Looped&display=swap" rel="stylesheet">
+<div class="content-wrapper" style="font-family:'Mitr', sans-serif">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>
-        ฟอร์มอัพเดทงานซ่อม
+    <section class="content-header" >
+        <h1 style="font-family:'Mitr', sans-serif">
+        อัพเดทงานซ่อม
         </h1>
     </section>
     <!-- Main content -->
@@ -41,9 +44,7 @@
                                                 ประเภทการแจ้ง
                                             </div>
                                             <div class="col-sm-7">
-                                                <select class="form-control" disabled>
-                                                    <option value="<?= $query->c_type;?>"><?= $query->c_type;?></option>
-                                                </select>
+                                            <input type="text" class="form-control" disabled value="<?= $query->c_type;?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -51,9 +52,7 @@
                                                 ตึก
                                             </div>
                                             <div class="col-sm-7">
-                                                <select class="form-control" disabled>
-                                                    <option value="<?= $query->c_town;?>"><?= $query->c_town;?></option>
-                                                </select>
+                                            <input type="text" class="form-control" disabled value="<?= $query->c_town;?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -61,9 +60,7 @@
                                                 ห้อง
                                             </div>
                                             <div class="col-sm-7">
-                                                <select class="form-control" disabled>
-                                                    <option value="<?= $query->c_room;?>"><?= $query->c_room;?></option>
-                                                </select>
+                                            <input type="text" class="form-control" disabled value="<?= $query->c_room;?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -71,9 +68,7 @@
                                                 อุปกรณ์ที่่ชำรุด
                                             </div>
                                             <div class="col-sm-7">
-                                                <select class="form-control" disabled>
-                                                    <option value="<?= $query->c_item;?>"><?= $query->c_room,'_',$query->c_item;?></option>
-                                                </select>
+                                                <input type="text" class="form-control" disabled value="<?= $query->c_room,' ',$query->c_item;?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -148,6 +143,7 @@
                                                     <button class="btn btn-primary" type="submit">
                                                     <i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button>         
                                                     <a class="btn btn-danger" href="<?=site_url('/tech/tnjob'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
+
                                                 </div>
                                             </div>
                                         </div>

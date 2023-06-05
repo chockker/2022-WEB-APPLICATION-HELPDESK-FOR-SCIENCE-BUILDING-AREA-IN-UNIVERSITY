@@ -71,10 +71,7 @@ class Form extends CI_Controller {
 					                	$this->data_model->insert_case();
 					                	//last id by user case
 					                	$data['qlastid']=$this->data_model->lastid($_POST['c_name']);
-					                	//echo $_POST['p_email'];
-					                	//print_r($data);
-					                	//echo $data['qlastid']->id;
-					                	//$this->session->set_flashdata('save_success', TRUE);
+					                	$this->session->set_flashdata('save_success', TRUE);
 					                	redirect('form/detail/'.$data['qlastid']->c_id,'refresh');
 					                }
 

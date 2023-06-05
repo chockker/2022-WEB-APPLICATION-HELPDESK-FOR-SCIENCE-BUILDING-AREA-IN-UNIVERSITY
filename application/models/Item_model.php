@@ -27,6 +27,7 @@ class Item_model extends CI_Model {
                 'i_type' => $this->input->post('j_name'),
                 'town' => $this->input->post('t_num'),
                 'i_address' => $this->input->post('r_name'),
+                'i_remark' => $this->input->post('i_remark')
                 );
                 $query=$this->db->insert('item',$data);
 	}
@@ -53,16 +54,17 @@ class Item_model extends CI_Model {
     }
     public function update_item()
     {
-            $data = array(
-                'i_codename' => $this->input->post('i_codename'),
-                'i_name' => $this->input->post('i_name'),
-                'i_type' => $this->input->post('j_name'),
-                'i_no_room' => $this->input->post('i_no_room'),
-                'floor' => $this->input->post('floor'),
-                'town' => $this->input->post('town')
+        $data = array(
+            'i_codename' => $this->input->post('i_codename'),
+            'i_name' => $this->input->post('i_name'),
+            'i_type' => $this->input->post('j_name'),
+            'town' => $this->input->post('t_num'),
+            'i_address' => $this->input->post('r_name'),
+            'i_remark' => $this->input->post('i_remark')
             );
             $this->db->where('i_id', $this->input->post('i_id'));
             $query=$this->db->update('item',$data);
+ 
     }
     public function del_item($i_id)
     {
